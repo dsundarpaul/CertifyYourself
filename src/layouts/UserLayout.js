@@ -1,6 +1,23 @@
 import React, { useState } from 'react'
 import { Button, Menu, Drawer, Dropdown, Layout, Spin } from 'antd'
-
+import { PageHeader } from '@ant-design/pro-layout';
+import {
+    SettingOutlined,
+    LogoutOutlined,
+    MenuOutlined,
+    UserOutlined,
+    IdcardTwoTone,
+    CarryOutTwoTone,
+    DashboardTwoTone,
+    SmileTwoTone,
+    ShoppingTwoTone,
+    SettingTwoTone,
+    ReconciliationTwoTone,
+    ProjectTwoTone,
+    ShopOutlined,
+    PieChartTwoTone,
+    ShopTwoTone
+} from '@ant-design/icons'
 import { useNavigate } from 'react-router'
 import MainSidePanelMenu from './components/MainSidePanelMenu'
 import { useDispatch, useSelector} from 'react-redux'
@@ -13,6 +30,9 @@ const { SubMenu } = Menu
 const ProfileMenu = () => {
     const navigate = useNavigate()
 
+    const openProfile = () => {
+        navigate('/profile')
+    }
     const doLogout = () => {
         navigate('/login')
     }
@@ -65,7 +85,7 @@ const ProfileMenu = () => {
     )
 }
 
-const AdminLayout = ({ children }) => {
+const UserLayout = ({ children }) => {
     
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -111,7 +131,7 @@ const AdminLayout = ({ children }) => {
                     title={<div className="md:hidden block"><Button onClick={() => setDrawer(true)} shape="circle" type="primary" icon={<MenuOutlined />} /></div>}
                     subTitle={
                         <div className="w-full flex flex-row-reverse">
-                            <img src={AdminLogoLarge} className="md:hidden block w-44 m-auto" />
+                            <img src='' alt='adminlogo' className="md:hidden block w-44 m-auto" />
                         </div>
                     }
                     style={{
@@ -137,7 +157,7 @@ const AdminLayout = ({ children }) => {
                 </Footer>
 
                 <Drawer
-                    title={<img src={AdminLogoLarge} className="img-fluid" />}
+                    title={<img src='' alt='bigimg' className="img-fluid" />}
                     placement="left"
                     width={220}
                     onClose={() => setDrawer(false)}
@@ -146,7 +166,7 @@ const AdminLayout = ({ children }) => {
                     bodyStyle={{ padding: 0 }}
                 >
                     <div>
-                        <AdminSidePanelMenu />
+                        <MainSidePanelMenu />
                     </div>
                 </Drawer>
 

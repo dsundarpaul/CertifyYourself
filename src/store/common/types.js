@@ -1,0 +1,2 @@
+export const NETWORK_LOADING = 'NETWORK_LOADING'
+export const LOADING = 'LOADING'
