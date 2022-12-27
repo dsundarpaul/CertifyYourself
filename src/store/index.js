@@ -17,6 +17,7 @@ const middleware = [thunk, createDebounce()]
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const store = createStore(persistedReducer, {}, composeEnhancers(applyMiddleware(...middleware)))
+
 const persistor = persistStore(store)
 
 export { store, persistor }

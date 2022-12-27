@@ -5,12 +5,20 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux'
 import { store, persistor } from './store'
 
-const App = () => {
-  <Provider store={store}>
-    <PersistGate loading={null} peristor={persistor}>
-      <Navigations />
-    </PersistGate>
-  </Provider>
+const App = () => { 
+  
+  return (
+    <Provider store={store}>
+        <Navigations />
+    </Provider>
+  )
 }
 
 export default App;
+
+    // <Provider store={store}>
+    //   <PersistGate loading={null} peristor={persistor}>
+    //     {/* <Navigations /> */}
+    //     hisdf
+    //   </PersistGate>
+    // </Provider>

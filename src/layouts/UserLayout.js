@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Menu, Drawer, Dropdown, Layout, Spin } from 'antd'
+import { Button, Menu, Drawer, Dropdown, Layout, Spin, Typography, Input } from 'antd'
 import { PageHeader } from '@ant-design/pro-layout';
 import {
     SettingOutlined,
@@ -23,9 +23,14 @@ import MainSidePanelMenu from './components/MainSidePanelMenu'
 import { useDispatch, useSelector} from 'react-redux'
 
 import packageJson from '../../package.json'
+import { LayoutContext } from 'antd/es/layout/layout';
+import './UserLayoutStyles.css'
+import d1 from '../assets/logo/d1.png'
 
 const { Header, Content, Footer, Sider } = Layout
 const { SubMenu } = Menu
+
+const userData = JSON.parse(localStorage.getItem('userData'))
 
 const ProfileMenu = () => {
     const navigate = useNavigate()
@@ -70,7 +75,7 @@ const ProfileMenu = () => {
         />
     )
 
-    const userData = JSON.parse(localStorage.getItem('userData'))
+    // const userData = JSON.parse(localStorage.getItem('userData'))
 
     return (
         <div className='flex'>
@@ -78,14 +83,20 @@ const ProfileMenu = () => {
                 <Button shape="circle" type="dashed" coloe="primary" icon={<UserOutlined />} />
             </Dropdown> 
             <div className='ml-2 grid'>
-                <p className={`text-gray-600 mb-0 font-semibold`}>{userData.user.email}</p>
-                <p style={{ lineHeight: '10px' }} className={`text-gray-400 mb-0`}>{userData.user.role}</p>
+                {/* <p className={`text-gray-600 mb-0 font-semibold`}>{userData.user.email}</p>
+                <p style={{ lineHeight: '10px' }} className={`text-gray-400 mb-0`}>{userData.user.role}</p> */}
             </div>
         </div>
     )
 }
 
 const UserLayout = ({ children }) => {
+
+    // return (
+    //     <Layout>
+    //         UserLayout
+    //     </Layout>
+    // )
     
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -104,14 +115,9 @@ const UserLayout = ({ children }) => {
                 </div> 
             )}
 
-            <Sider
-                style={{
-                    overflowY: 'auto',
-                    position: 'fixed',
-                    zIndex: 1,
-                    height: '100%'
-                }}
-                className="shadow-lg hidden md:block" 
+            {/* <Sider
+                // style={{}}
+                className="main-sider" 
                 theme="light" 
                 id="components-layout-demo-side"
             >
@@ -123,25 +129,45 @@ const UserLayout = ({ children }) => {
                         <img src='' className='img-fluid' />
                     )}
                 </div>
-            </Sider>
+
+                <MainSidePanelMenu />
+            </Sider> */}
+            <Drawer
+                className="main-sider" 
+                title={<img src='' alt='bigimg' className="img-fluid" />}
+                // theme="light" 
+                // id="components-layout-demo-side"
+                placement="left"
+                width={220}
+                onClose={() => setDrawer(false)}
+                open={drawer}
+                bodyStyle={{ padding: 0 }}
+            >
+                <MainSidePanelMenu />
+            </Drawer>
 
             <Layout className="site-layout">
                 <PageHeader
-                    className={`p-0 bg-white shadow admin-layout-header ${collapsed ? 'layout-header-margin-collapsed' : 'layout-header-margin'}`}
-                    title={<div className="md:hidden block"><Button onClick={() => setDrawer(true)} shape="circle" type="primary" icon={<MenuOutlined />} /></div>}
+                    // className={`admin-layout-header ${collapsed ? 'layout-header-margin-collapsed' : 'layout-header-margin'}`}
+                    className='admin-layout-header'
+                    title={<div className="md:hidden block"><Button onClick={() => setDrawer(true)} shape="circle" type="transparent" icon={<MenuOutlined />} /></div>}
                     subTitle={
-                        <div className="w-full flex flex-row-reverse">
-                            <img src='' alt='adminlogo' className="md:hidden block w-44 m-auto" />
+                        <div className="header-logo">
+                            <img src={d1} alt='adminlogo' className="md:hidden block w-44 m-auto" />
+                            <Typography.Title level={5}>CertifyYourself</Typography.Title>
                         </div>
                     }
-                    style={{
-                        padding: '7px 20px',
-                        background: 'white',
-                        marginBottom: '8px',
-                        position: 'fixed',
-                        zIndex: 1
-                    }}
-                    extra={<ProfileMenu />}
+                    extra={userData ? (
+                                <ProfileMenu />
+                            ) : (
+                                <div>
+                                    <Input type='text' className='header-input' />
+                                    <Input type='password' className='header-input' />
+                                    <Button>Login</Button>
+                                    <Button>SignUp</Button>
+                                </div>
+                            )
+                    }
                 />
 
                 <Content className={`mx-2 md:mx-4 md:mt-2 ${collapsed ? 'layout-container-margin-collapsed' : 'layout-container-margin'}`}>
@@ -152,11 +178,11 @@ const UserLayout = ({ children }) => {
 
                 </Content>
 
-                <Footer style={{ marginLeft: !collapsed && 80 }} className="font-mono text-center font-xs">
+                <Footer className="footer">
                     <p className='text-gray-400 mb-0'>v {packageJson.version}</p>
                 </Footer>
 
-                <Drawer
+                {/* <Drawer
                     title={<img src='' alt='bigimg' className="img-fluid" />}
                     placement="left"
                     width={220}
@@ -168,7 +194,7 @@ const UserLayout = ({ children }) => {
                     <div>
                         <MainSidePanelMenu />
                     </div>
-                </Drawer>
+                </Drawer> */}
 
             </Layout>
           </Layout>

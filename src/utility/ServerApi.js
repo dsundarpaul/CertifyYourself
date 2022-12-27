@@ -15,25 +15,25 @@ function ServerApi(props) {
         token = ''
     }
     return (axios.create({
-    //     baseURL: `${process.env.REACT_APP_BASE_URL}/api/v1`,
-    // headers: {
-    //   Authorization: `Bearer ${token}`,
-    //   "Content-Type": "application/json"
-    // },
-    // redirect: 'follow',
-    // transformResponse: [
-    //   (data) => {
+        baseURL: `localhost:5000/`,
+        headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+    },
+    redirect: 'follow',
+    transformResponse: [
+      (data) => {
 
-    //     //manage session timeouts
-    //     if (data === '{"statusCode":401,"message":"Unauthorized"}') {
-    //       console.log('Not authorized ---- ')
-    //       // localStorage.removeItem('userData')
-    //       window.location = '/not-authorized'
-    //     }
+        //manage session timeouts
+        if (data === '{"statusCode":401,"message":"Unauthorized"}') {
+          console.log('Not authorized ---- ')
+          // localStorage.removeItem('userData')
+          window.location = '/not-authorized'
+        }
 
-    //     return JSON.parse(data)
-    //   }
-    // ],
-    // ...props
+        return JSON.parse(data)
+      }
+    ],
+    ...props
     }))
 }
