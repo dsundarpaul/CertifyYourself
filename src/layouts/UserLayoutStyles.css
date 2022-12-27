@@ -32,10 +32,10 @@
 .main-sider {
     /* shadow-lg hidden md:block  */
     background-color: #B3D8FB !important;
-    /* overflow-y: auto; */
-    /* position: fixed;
+    overflow-y: auto;
+    /* position: fixed; */
     z-index: 1;
-    height: auto */
+    height: auto
 }
 
 
