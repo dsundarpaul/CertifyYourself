@@ -8,38 +8,30 @@ import { Image } from 'antd'
 
 export default [
     {
-        title: 'Friends',
-        route: '/friends',
-        module: 'FRIENDS'
+        title: 'Dashboard',
+        route: '/dashboard',
+        module: 'DASHBOARD'
       },
       {
-        title: 'Groups',
-        route: '/groups',
-        module: 'GROUPS'
+        title: 'Users',
+        route: '/users',
+        module: 'USERS',
+        // children: [
+        //   {
+        //     title: 'Mobile Users',
+        //     route: '/users',
+        //     module: 'USERS_MOBILE'
+        //   },
+        //   {
+        //     title: 'Admin Users',
+        //     route: '/users/admin',
+        //     module: 'USERS_ADMIN'
+        //   }
+        // ]
       },
       {
-        title: 'Events',
-        route: '/events',
-        module: 'EVENTS'
-      },
-      {
-        title: 'Leaderboard',
-        route: '/leaderboard',
-        module: 'LEADERBOARD'
-      },
-      {
-        title: 'News',
-        route: '/news',
-        module: 'NEWS'
-      },
-      {
-        title: 'Community',
-        route: '/community',
-        module: 'COMMUNITY'
-      },
-      {
-        title: 'Settings',
-        route: '/settings',
-        module: 'SETTINGS'
-      },
+        title: 'Goals & Habits',
+        route: '/goals',
+        module: 'GOALS'
+      }
 ]
