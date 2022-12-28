@@ -37,3 +37,5 @@ function ServerApi(props) {
     ...props
     }))
 }
+
+export default ServerApi

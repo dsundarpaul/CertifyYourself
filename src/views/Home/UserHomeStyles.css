@@ -1,0 +1,33 @@
+
+.hero-content {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8DCDC;
+}
+
+
+.hero-button {
+    width: 140px;
+    height: 140px;
+    background-color: #C53435;
+    transform: rotate(-45deg);
+    font-size: 40px;
+}
+.hero-button span {
+    transform: rotate(45deg);
+    color: white;
+    border: 1px solid black;
+}
+
+.hero-button:hover {
+    border: 1px solid white !important;
+    color: white !important;
+    font-size: 44px;
+}
+.hero-button:focus {
+    /* border: 1px solid white;
+    color: white !important; */
+}

@@ -19,13 +19,13 @@ import {
     ShopTwoTone
 } from '@ant-design/icons'
 import { useNavigate } from 'react-router'
-import MainSidePanelMenu from './components/MainSidePanelMenu'
+import MainSidePanelMenu from '../components/MainSidePanelMenu'
 import { useDispatch, useSelector} from 'react-redux'
 
-import packageJson from '../../package.json'
+import packageJson from '../../../package.json'
 import { LayoutContext } from 'antd/es/layout/layout';
 import './UserLayoutStyles.css'
-import d1 from '../assets/logo/d1.png'
+import d1 from '../../assets/logo/d1.png'
 
 const { Header, Content, Footer, Sider } = Layout
 const { SubMenu } = Menu
@@ -163,14 +163,15 @@ const UserLayout = ({ children }) => {
                                 <div>
                                     <Input type='text' className='header-input' />
                                     <Input type='password' className='header-input' />
-                                    <Button>Login</Button>
-                                    <Button>SignUp</Button>
+                                    <Button className='header-btn' variant="contained" color="primary">Login</Button>
+                                    <Button className='header-btn' color='primary'>SignUp</Button>
                                 </div>
                             )
                     }
                 />
 
-                <Content className={`mx-2 md:mx-4 md:mt-2 ${collapsed ? 'layout-container-margin-collapsed' : 'layout-container-margin'}`}>
+                {/* <Content className={`mx-2 md:mx-4 md:mt-2 ${collapsed ? 'layout-container-margin-collapsed' : 'layout-container-margin'}`}> */}
+                <Content className='main-content'>
 
                     <div className="p-2 overflow-auto mt-14">
                         {children}
