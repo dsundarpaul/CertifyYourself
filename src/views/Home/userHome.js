@@ -1,7 +1,15 @@
+import { Button } from 'antd'
 import React from 'react'
+import './UserHomeStyles.css'
 
-export const userHome = () => {
+const UserHome = () => {
   return (
-    <div>userHome</div>
+    <div className='userHome-main'>
+      <div className='hero-content'>
+        <Button className='hero-button'>Start</Button>
+      </div>
+    </div>
   )
 }
+
+export default UserHome
