@@ -168,12 +168,44 @@ const UserLayout = ({ children }) => {
                                 </div>
                             )
                     }
-                />
+                >
+                    {/* <PageHeader
+                        // className={`admin-layout-header ${collapsed ? 'layout-header-margin-collapsed' : 'layout-header-margin'}`}
+                        className=''
+                        title={<div className="md:hidden block"><Button onClick={() => setDrawer(true)} shape="circle" type="transparent" icon={<MenuOutlined />} /></div>}
+                        subTitle={
+                            <div className="header-logo">
+                                <img src={d1} alt='adminlogo' className="md:hidden block w-44 m-auto" />
+                                <Typography.Title level={5}>CertifyYourself</Typography.Title>
+                            </div>
+                        }
+                        extra={userData ? (
+                                    <ProfileMenu />
+                                ) : (
+                                    <div>
+                                        <Input type='text' className='header-input' />
+                                        <Input type='password' className='header-input' />
+                                        <Button className='header-btn' variant="contained" color="primary">Login</Button>
+                                        <Button className='header-btn' color='primary'>SignUp</Button>
+                                    </div>
+                                )
+                        }
+                    /> */}
+                    <div className='sub-header'>
+                        <Button>Home</Button>
+                        <Button>Levels</Button>
+                        <Button>Certification</Button>
+                        <Button>Community</Button>
+                        <Button>Groups</Button>
+                        <Button>About Us</Button>
+                    </div>
+                </PageHeader>
+               
 
                 {/* <Content className={`mx-2 md:mx-4 md:mt-2 ${collapsed ? 'layout-container-margin-collapsed' : 'layout-container-margin'}`}> */}
                 <Content className='main-content'>
 
-                    <div className="p-2 overflow-auto mt-14">
+                    <div>
                         {children}
                     </div>
 

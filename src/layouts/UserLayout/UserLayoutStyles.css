@@ -45,6 +45,22 @@
     border: 1px solid #000;
 }
 
+.sub-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #FFEEDA;
+}
+.sub-header > button {
+    width: 100%;
+    background-color: transparent;
+    border: transparent;
+}
+.sub-header > button:hover {
+    background-color: #FFDDB5;
+    color: black !important;
+}
+
 .main-sider {
     /* shadow-lg hidden md:block  */
     background-color: #B3D8FB !important;
@@ -58,6 +74,11 @@
     padding: 0.5rem;
     margin-top: 3.5rem;
     background-color: white;
+}
+.main-content > div {
+    /* p-2 overflow-auto mt-14 */
+    overflow: auto;
+    width: 100%;
 }
 
 .footer {
