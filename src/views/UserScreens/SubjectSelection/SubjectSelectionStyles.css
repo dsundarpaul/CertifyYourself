@@ -1,0 +1,8 @@
+.main-content {
+    width: 100%;
+    display: flex;
+}
+
+.subject-card {
+    height: 400px;
+}

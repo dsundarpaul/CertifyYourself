@@ -7,8 +7,9 @@ import {
 } from 'react-router-dom'
 import UserLayout from '../layouts/UserLayout/UserLayout'
 import GuestLayout from "../layouts/GuestLayout/GuestLayout";
-import UserHome from '../views/Home/UserHome'
+import UserHome from '../views/UserScreens/Home/UserHome'
 import Login from '../views/auth/login/Login'
+import SubjectSelection from "../views/UserScreens/SubjectSelection/SubjectSelection";
 
 const Navigations = () => {
 
@@ -25,6 +26,7 @@ const Navigations = () => {
                     } />
 
                     <Route path="/home" element={<UserLayout><UserHome /></UserLayout>} />
+                    <Route path="/subjects" element={<UserLayout><SubjectSelection /></UserLayout>} />
 
 
                 </RouterRoutes>
