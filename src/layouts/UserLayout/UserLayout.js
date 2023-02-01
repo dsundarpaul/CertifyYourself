@@ -23,12 +23,12 @@ import MainSidePanelMenu from '../components/MainSidePanelMenu'
 import { useDispatch, useSelector} from 'react-redux'
 
 import packageJson from '../../../package.json'
-import { LayoutContext } from 'antd/es/layout/layout';
+// import { LayoutContext } from 'antd/es/layout/layout';
 import './UserLayoutStyles.css'
 import d1 from '../../assets/logo/d1.png'
 
-const { Header, Content, Footer, Sider } = Layout
-const { SubMenu } = Menu
+const { Content, Footer } = Layout
+// const { SubMenu } = Menu
 
 const userData = JSON.parse(localStorage.getItem('userData'))
 
@@ -51,7 +51,7 @@ const ProfileMenu = () => {
         }
     }
 
-    const navigateToChangePassword = (() => navigate('/change-password'))
+    // const navigateToChangePassword = (() => navigate('/change-password'))
     const logoutUser = (() => localStorage.removeItem("userData"))
 
     const menu__items = [

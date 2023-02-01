@@ -11,7 +11,7 @@ const UserHome = () => {
 
   return (
     <div className='userHome-main'>
-      <div className='hero-content'>
+      <div className='hero-content w-full flex justify-center items-center'>
         <Button className='hero-button' onClick={handleOnStart}>Start</Button>
         <div className='hero-top'>
           <Typography>Name</Typography>

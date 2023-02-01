@@ -15,7 +15,7 @@ function ServerApi(props) {
         token = ''
     }
     return (axios.create({
-        baseURL: `localhost:5000/`,
+        baseURL: `http://localhost:5000/`,
         headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
