@@ -5,7 +5,7 @@ import ServerApi from "../../utility/ServerApi"
 
 export const doLogin = (rawData, successCallback) => dispatch => {
   dispatch(toggleNetworkLoading(true))
-  ServerApi().post(`auth/login`, rawData)
+  ServerApi().post(`auth/login`, rawData) 
     .then(res => {
       const userData = res.data
       successCallback(res.data)
@@ -13,6 +13,7 @@ export const doLogin = (rawData, successCallback) => dispatch => {
     })
     .catch(e => {
       message.error("Invalid Email / Password")
+      console.log(e)
     })
     .finally(() => {
       dispatch(toggleNetworkLoading(false))

@@ -9,7 +9,7 @@ const SubjectSelection = () => {
             <Card className='subject-card'>MATHS</Card>
             <Card className='subject-card'>SCIENSE</Card>
             <Card className='subject-card'>ENGISH</Card>
-            <Card className='subject-card'>HISTORY</Card>
+            {/* <Card className='subject-card'>HISTORY</Card> */}
         </div>
     </div>
   )
