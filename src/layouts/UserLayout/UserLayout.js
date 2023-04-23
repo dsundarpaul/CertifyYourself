@@ -163,8 +163,8 @@ const UserLayout = ({ children }) => {
                                 <div>
                                     <Input type='text' className='header-input' />
                                     <Input type='password' className='header-input' />
-                                    <Button className='header-btn' variant="contained" color="primary">Login</Button>
-                                    <Button className='header-btn' color='primary'>SignUp</Button>
+                                    <Button className='header-btn header-btn-login' type="primary" color="primary">Login</Button>
+                                    <Button className='header-btn' type="link" color='primary'>SignUp</Button>
                                 </div>
                             )
                     }
