@@ -2,30 +2,31 @@ import React, { useState } from 'react'
 import { Button, Menu, Drawer, Dropdown, Layout, Spin, Typography, Input } from 'antd'
 import { PageHeader } from '@ant-design/pro-layout';
 import {
-    SettingOutlined,
+    // SettingOutlined,
     LogoutOutlined,
     MenuOutlined,
     UserOutlined,
-    IdcardTwoTone,
-    CarryOutTwoTone,
-    DashboardTwoTone,
-    SmileTwoTone,
-    ShoppingTwoTone,
-    SettingTwoTone,
-    ReconciliationTwoTone,
-    ProjectTwoTone,
-    ShopOutlined,
-    PieChartTwoTone,
-    ShopTwoTone
+    // IdcardTwoTone,
+    // CarryOutTwoTone,
+    // DashboardTwoTone,
+    // SmileTwoTone,
+    // ShoppingTwoTone,
+    // SettingTwoTone,
+    // ReconciliationTwoTone,
+    // ProjectTwoTone,
+    // ShopOutlined,
+    // PieChartTwoTone,
+    // ShopTwoTone
 } from '@ant-design/icons'
 import { useNavigate } from 'react-router'
 import MainSidePanelMenu from '../components/MainSidePanelMenu'
-import { useDispatch, useSelector} from 'react-redux'
+import { useSelector} from 'react-redux'
 
 import packageJson from '../../../package.json'
 // import { LayoutContext } from 'antd/es/layout/layout';
 import './UserLayoutStyles.css'
 import d1 from '../../assets/logo/d1.png'
+import PropTypes from 'prop-types';
 
 const { Content, Footer } = Layout
 // const { SubMenu } = Menu
@@ -98,10 +99,10 @@ const UserLayout = ({ children }) => {
     //     </Layout>
     // )
     
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
+    // const navigate = useNavigate()
+    // const dispatch = useDispatch()
 
-    const collapsed = false //useSelector(state => state.common.collapsed)
+    // const collapsed = false //useSelector(state => state.common.collapsed)
     const blockUi = useSelector(state => state.common.blockUi)
 
     const [drawer, setDrawer] = useState(false)
@@ -232,6 +233,10 @@ const UserLayout = ({ children }) => {
             </Layout>
           </Layout>
     )
+}
+
+UserLayout.prototype = {
+    children: PropTypes.node.isRequired
 }
 
 export default UserLayout

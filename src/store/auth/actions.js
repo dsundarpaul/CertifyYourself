@@ -37,7 +37,7 @@ export const handleLogout = () => {
   }
 }
 
-export const changePassword = (rawData, successCallback, errorCallback) => dispatch => {
+export const changePassword = (rawData, successCallback, errorCallback) => () => {
   ServerApi().post(`auth/change-password`, rawData)
     .then(res => {
       if (res.status === 200 || res.status === 201) {
@@ -60,7 +60,7 @@ export const changePassword = (rawData, successCallback, errorCallback) => dispa
     })
 }
 
-export const forgotPassward = (rawData, successCallback, errorCallback) => dispatch => {
+export const forgotPassward = (rawData, successCallback, errorCallback) => () => {
   ServerApi().post(`auth/user/forgot-password-reset`, rawData)
     .then(res => {
       if (res.status === 200 || res.status === 201) {
@@ -76,7 +76,7 @@ export const forgotPassward = (rawData, successCallback, errorCallback) => dispa
     })
     .catch(e => {
       // message.error(e.response.data.message || "Error resetting password!", e)
-      // console.log(e)
+      console.log(e)
       if (errorCallback) {
         errorCallback()
       }
@@ -84,7 +84,7 @@ export const forgotPassward = (rawData, successCallback, errorCallback) => dispa
 }
 
 
-export const validateResetPasswordToken = (rawData, successCallback, errorCallback) => dispatch => {
+export const validateResetPasswordToken = (rawData, successCallback, errorCallback) => () => {
   ServerApi().post(`auth/user/forgot-password-validate-token`, rawData)
     .then(res => {
       if (res.status === 200 || res.status === 201) {
@@ -100,7 +100,7 @@ export const validateResetPasswordToken = (rawData, successCallback, errorCallba
     })
     .catch(e => {
       // message.error(e.response.data.message || "Error resetting password!", e)
-      // console.error(e)
+      console.error(e)
       if (errorCallback) {
         errorCallback()
       }

@@ -1,6 +1,6 @@
 import React from "react"
-import { Link, useNavigate } from 'react-router-dom'
-import { Card, Form, Input, Button, Checkbox } from 'antd'
+import { useNavigate } from 'react-router-dom'
+import { Card, Form, Input, Button } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 // import { toggleNetworkLoading } from '../../../store/common/actions'
 import { doLogin } from '../../../store/auth/actions'

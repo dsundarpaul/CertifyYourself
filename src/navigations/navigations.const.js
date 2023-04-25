@@ -1,10 +1,10 @@
-import React from 'react'
-import {
-    DashboardTwoTone,
-    ContactsTwoTone,
-    ShopTwoTone
-} from '@ant-design/icons'
-import { Image } from 'antd'
+// import React from 'react'
+// import {
+//     DashboardTwoTone,
+//     ContactsTwoTone,
+//     ShopTwoTone
+// } from '@ant-design/icons'
+// import { Image } from 'antd'
 
 export default [
     {
