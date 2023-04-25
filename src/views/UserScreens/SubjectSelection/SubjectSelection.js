@@ -6,9 +6,9 @@ const SubjectSelection = () => {
   return (
     <div>
         <div className='main-content'>
-            <Card className='subject-card'>MATHS</Card>
-            <Card className='subject-card'>SCIENSE</Card>
-            <Card className='subject-card'>ENGISH</Card>
+            <Card hoverable className='subject-card'>MATHS</Card>
+            <Card hoverable className='subject-card'>SCIENCE</Card>
+            <Card hoverable className='subject-card'>ENGLISH</Card>
             {/* <Card className='subject-card'>HISTORY</Card> */}
         </div>
     </div>
