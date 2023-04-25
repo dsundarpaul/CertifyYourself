@@ -1,15 +1,15 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { Menu } from 'antd'
-import {
-		IdcardTwoTone,
-		DashboardTwoTone,
-		ShopTwoTone
-} from '@ant-design/icons'
+// import {
+// 		IdcardTwoTone,
+// 		DashboardTwoTone,
+// 		ShopTwoTone
+// } from '@ant-design/icons'
 import navigation from '../../navigations/navigations.const'
 
 const { SubMenu } = Menu
-const MainSidePanelMenu = props => {
+const MainSidePanelMenu = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
 	
@@ -49,7 +49,7 @@ const MainSidePanelMenu = props => {
 	const childrenPermissionsChecker = (menus) => {
 		let anyPermission = false
 
-		menus.map(i => {
+		menus.map(() => {
 			anyPermission = true
 		})
 

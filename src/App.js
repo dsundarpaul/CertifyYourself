@@ -1,9 +1,9 @@
 import React from 'react';
 import Navigations from './navigations'
-import { PersistGate } from 'redux-persist/integration/react'
+// import { PersistGate } from 'redux-persist/integration/react'
 
 import { Provider } from 'react-redux'
-import { store, persistor } from './store'
+import { store } from './store'
 
 const App = () => { 
   

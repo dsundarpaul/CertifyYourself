@@ -1,13 +1,9 @@
-.site-layout {
-    background-color: grey;
-}
-
 .admin-layout-header {
     width: 100%;
     /* display: flex; */
     /* align-items: center; */
     /* justify-content: space-between; */
-    background-color: #FFCCCC;
+    /* background-color: #FFCCCC; */
     z-index: 1;
     /* padding-block: 0 !important; */
     /* margin-block: 0 !important; */
@@ -21,7 +17,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
+    flex-direction: row-reverse;    
 }
 .header-logo > h5 {
     margin-inline-end: 0 !important;
@@ -42,6 +38,9 @@
 }
 .header-btn {
     margin: 0 4px;
+    color: #000;
+}
+.header-btn-login {
     border: 1px solid #000;
 }
 
@@ -71,7 +70,6 @@
 }
 
 .main-content {
-    padding: 0.5rem;
     margin-top: 3.5rem;
     background-color: white;
 }
