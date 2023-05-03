@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Menu, Drawer, Dropdown, Layout, Spin, Typography, Input } from 'antd'
 import { PageHeader } from '@ant-design/pro-layout';
+
 import {
     // SettingOutlined,
     LogoutOutlined,
@@ -32,6 +33,7 @@ const { Content, Footer } = Layout
 // const { SubMenu } = Menu
 
 const userData = JSON.parse(localStorage.getItem('userData'))
+
 
 const ProfileMenu = () => {
     const navigate = useNavigate()
@@ -99,7 +101,7 @@ const UserLayout = ({ children }) => {
     //     </Layout>
     // )
     
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     // const dispatch = useDispatch()
 
     // const collapsed = false //useSelector(state => state.common.collapsed)
@@ -193,7 +195,7 @@ const UserLayout = ({ children }) => {
                         }
                     /> */}
                     <div className='sub-header'>
-                        <Button>Home</Button>
+                        <Button onClick={() => {navigate('/home')}}>Home</Button>
                         <Button>Levels</Button>
                         <Button>Certification</Button>
                         <Button>Community</Button>
