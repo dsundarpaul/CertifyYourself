@@ -49,7 +49,7 @@ const Login = () => {
                         </Form.Item>
 
                         <Form.Item className="text-center">
-                            <Button type="dashed" htmlType="submit" loading={networkLoading}>
+                            <Button type="dashed" htmlType="submit" loading={networkLoading} onClick={() => {navigate('/home')}}>
                                 Login
                             </Button>
                         </Form.Item>
