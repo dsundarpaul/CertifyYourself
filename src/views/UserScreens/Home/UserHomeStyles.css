@@ -8,7 +8,6 @@
     background-color: #F8DCDC;
 }
 
-
 .hero-button {
     width: 140px;
     height: 140px;
@@ -16,17 +15,18 @@
     transform: rotate(-45deg);
     font-size: 40px;
     border-radius: 5px;
+    color: white;
 }
 .hero-button span {
     transform: rotate(45deg);
-    color: white;
+    /* color: white; */
 }
 
 .hero-button:hover {
     border: 3px solid white !important;
     color: black !important;
     font-size: 44px;
-    background-color: aliceblue;
+    background-color: #F6F1F1;
 }
 .hero-button:focus {
     /* border: 1px solid white;

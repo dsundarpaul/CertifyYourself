@@ -32,10 +32,7 @@ import PropTypes from 'prop-types';
 const { Content, Footer } = Layout
 // const { SubMenu } = Menu
 
-const userData = JSON.parse(localStorage.getItem('userData'))
-
-
-const ProfileMenu = () => {
+const ProfileMenu = ({ user }) => {
     const navigate = useNavigate()
 
     const openProfile = () => {
@@ -78,17 +75,15 @@ const ProfileMenu = () => {
         />
     )
 
-    // const userData = JSON.parse(localStorage.getItem('userData'))
-
     return (
-        <div className='flex'>
+        <div className='flex items-center'>
+            <div className='mr-4 grid'>
+                <p className={`text-gray-600 mb-0 font-semibold`}>{user.email}</p>
+                {/* <p style={{ lineHeight: '10px' }} className={`text-gray-400 mb-0`}>{userData.user.role}</p> */}
+            </div>
             <Dropdown className='drop-shadow' overlay={menu} placement='bottomRight' arrow>
                 <Button shape="circle" type="dashed" coloe="primary" icon={<UserOutlined />} />
             </Dropdown> 
-            <div className='ml-2 grid'>
-                {/* <p className={`text-gray-600 mb-0 font-semibold`}>{userData.user.email}</p>
-                <p style={{ lineHeight: '10px' }} className={`text-gray-400 mb-0`}>{userData.user.role}</p> */}
-            </div>
         </div>
     )
 }
@@ -107,6 +102,8 @@ const UserLayout = ({ children }) => {
     // const collapsed = false //useSelector(state => state.common.collapsed)
     const blockUi = useSelector(state => state.common.blockUi)
 
+    const userData = useSelector(state => state.auth.userData.user)
+    
     const [drawer, setDrawer] = useState(false)
 
     return (
@@ -161,15 +158,15 @@ const UserLayout = ({ children }) => {
                         </div>
                     }
                     extra={userData ? (
-                                <ProfileMenu />
-                            ) : (
-                                <div>
-                                    <Input type='text' className='header-input' />
-                                    <Input type='password' className='header-input' />
-                                    <Button className='header-btn header-btn-login' type="primary" color="primary">Login</Button>
-                                    <Button className='header-btn' type="link" color='primary'>SignUp</Button>
-                                </div>
-                            )
+                        <ProfileMenu user={userData} />
+                    ) : (
+                        <div>
+                            <Input type='text' className='header-input' />
+                            <Input type='password' className='header-input' />
+                            <Button className='header-btn header-btn-login' type="primary" color="primary">Login</Button>
+                            <Button className='header-btn' type="link" color='primary'>SignUp</Button>
+                        </div>
+                        )
                     }
                 >
                     {/* <PageHeader

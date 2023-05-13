@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "./types"
+import { LOGIN, LOGOUT, USER_AUTH } from "./types"
 
 const initialState = {
     loggedIn: false,
@@ -21,6 +21,8 @@ const authReducer = (state = initialState, action) => {
         }
       case LOGOUT:
         return { ...state, userData: {}, loggedIn: false }
+      case USER_AUTH:
+        return { ...state, userData: action.payload }
       default:
         return state
     }

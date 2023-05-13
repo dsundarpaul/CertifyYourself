@@ -10,6 +10,7 @@ import GuestLayout from "../layouts/GuestLayout/GuestLayout";
 import UserHome from '../views/UserScreens/Home/UserHome'
 import Login from '../views/auth/login/Login'
 import SubjectSelection from "../views/UserScreens/SubjectSelection/SubjectSelection";
+import Signup from "../views/auth/SignUp/Signup";
 // import LandingLayout from "../layouts/LandingLayout/LandingLayout";
 
 const Navigations = () => {
@@ -27,6 +28,11 @@ const Navigations = () => {
                     <Route path="/login" element={
                         <GuestLayout>
                             <Login />
+                        </GuestLayout>
+                    } />
+                    <Route path="/signup" element={
+                        <GuestLayout>
+                            <Signup />
                         </GuestLayout>
                     } />
                     {/* <Route path="/login" element={<GuestLayout><Login /></GuestLayout>} /> */}

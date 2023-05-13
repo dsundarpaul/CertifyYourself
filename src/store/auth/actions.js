@@ -1,24 +1,37 @@
 import { LOGIN, LOGOUT } from "./types"
 import { message } from 'antd'
-import { toggleNetworkLoading } from "../common/actions"
+// import { toggleNetworkLoading } from "../common/actions"
 import ServerApi from "../../utility/ServerApi"
 
-export const doLogin = (rawData, successCallback) => dispatch => {
-  dispatch(toggleNetworkLoading(true))
-  ServerApi().post(`auth/login`, rawData) 
-    .then(res => {
-      const userData = res.data
-      successCallback(res.data)
-      localStorage.setItem("userData", JSON.stringify(userData.data))
-    })
-    .catch(e => {
-      message.error("Invalid Email / Password")
-      console.log(e)
-    })
-    .finally(() => {
-      dispatch(toggleNetworkLoading(false))
-    })
-}
+// export const doLogin = (rawData, successCallback) => dispatch => {
+  // dispatch(toggleNetworkLoading(true))
+  // ServerApi().post(`auth/login`, rawData) 
+  //   .then(res => {
+  //     const userData = res.data
+  //     successCallback(res.data)
+  //     localStorage.setItem("userData", JSON.stringify(userData.data))
+  //   })
+  //   .catch(e => {
+  //     message.error("Invalid Email / Password")
+  //     console.log(e)
+  //   })
+  //   .finally(() => {
+  //     dispatch(toggleNetworkLoading(false))
+  //   })
+
+  
+  // if (formError) setFormError("");
+  // if (!form.email.includes("@")) {
+  //   return setFormError("Please enter a valid email");
+  // }
+
+  // if (form.password !== form.confirmPassword) {
+  //   return setFormError("Passwords do not match");
+  // }
+
+  // // Valid form inputs
+  // createUserWithEmailAndPassword(form.email, form.password);
+// }
 
 /**
  * 
