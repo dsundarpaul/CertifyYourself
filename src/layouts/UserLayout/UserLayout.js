@@ -21,19 +21,25 @@ import {
 } from '@ant-design/icons'
 import { useNavigate } from 'react-router'
 import MainSidePanelMenu from '../components/MainSidePanelMenu'
-import { useSelector} from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 
 import packageJson from '../../../package.json'
 // import { LayoutContext } from 'antd/es/layout/layout';
 import './UserLayoutStyles.css'
 import d1 from '../../assets/logo/d1.png'
 import PropTypes from 'prop-types';
+import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase/clientApp';
+import { USER_LOGOUT } from '../../store/auth/types';
 
 const { Content, Footer } = Layout
 // const { SubMenu } = Menu
 
 const ProfileMenu = ({ user }) => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    
+    const [signOut, loading, error] = useSignOut(auth);
 
     const openProfile = () => {
         navigate('/profile')
@@ -52,7 +58,19 @@ const ProfileMenu = ({ user }) => {
     }
 
     // const navigateToChangePassword = (() => navigate('/change-password'))
-    const logoutUser = (() => localStorage.removeItem("userData"))
+    const logoutUser = ( async() => {
+        const success = await signOut()
+        if (success) {
+            alert('Your are signed out')
+            dispatch({
+                type: USER_LOGOUT
+            })
+        }
+    })
+
+    if (error) {
+        alert(error)
+    }
 
     const menu__items = [
         {
@@ -89,22 +107,16 @@ const ProfileMenu = ({ user }) => {
 }
 
 const UserLayout = ({ children }) => {
-
-    // return (
-    //     <Layout>
-    //         UserLayout
-    //     </Layout>
-    // )
     
     const navigate = useNavigate()
     // const dispatch = useDispatch()
 
-    // const collapsed = false //useSelector(state => state.common.collapsed)
     const blockUi = useSelector(state => state.common.blockUi)
 
     const userData = useSelector(state => state.auth.userData.user)
     
     const [drawer, setDrawer] = useState(false)
+    const [user, loading, error] = useAuthState(auth);
 
     return (
         <Layout style={{ minHeight: '100vh' }}>
@@ -115,23 +127,6 @@ const UserLayout = ({ children }) => {
                 </div> 
             )}
 
-            {/* <Sider
-                // style={{}}
-                className="main-sider" 
-                theme="light" 
-                id="components-layout-demo-side"
-            >
-                <div className='p-4'>
-                    {collapsed && (
-                        <img src='' className='img-fluid' />
-                    )}
-                    {!collapsed && (
-                        <img src='' className='img-fluid' />
-                    )}
-                </div>
-
-                <MainSidePanelMenu />
-            </Sider> */}
             <Drawer
                 className="main-sider" 
                 title={<img src='' alt='bigimg' className="img-fluid" />}
@@ -148,7 +143,6 @@ const UserLayout = ({ children }) => {
 
             <Layout className="site-layout">
                 <PageHeader
-                    // className={`admin-layout-header ${collapsed ? 'layout-header-margin-collapsed' : 'layout-header-margin'}`}
                     className='admin-layout-header'
                     title={<div className="md:hidden block"><Button onClick={() => setDrawer(true)} shape="circle" type="transparent" icon={<MenuOutlined />} /></div>}
                     subTitle={
@@ -169,40 +163,15 @@ const UserLayout = ({ children }) => {
                         )
                     }
                 >
-                    {/* <PageHeader
-                        // className={`admin-layout-header ${collapsed ? 'layout-header-margin-collapsed' : 'layout-header-margin'}`}
-                        className=''
-                        title={<div className="md:hidden block"><Button onClick={() => setDrawer(true)} shape="circle" type="transparent" icon={<MenuOutlined />} /></div>}
-                        subTitle={
-                            <div className="header-logo">
-                                <img src={d1} alt='adminlogo' className="md:hidden block w-44 m-auto" />
-                                <Typography.Title level={5}>CertifyYourself</Typography.Title>
-                            </div>
-                        }
-                        extra={userData ? (
-                                    <ProfileMenu />
-                                ) : (
-                                    <div>
-                                        <Input type='text' className='header-input' />
-                                        <Input type='password' className='header-input' />
-                                        <Button className='header-btn' variant="contained" color="primary">Login</Button>
-                                        <Button className='header-btn' color='primary'>SignUp</Button>
-                                    </div>
-                                )
-                        }
-                    /> */}
+                    
                     <div className='sub-header'>
                         <Button onClick={() => {navigate('/home')}}>Home</Button>
                         <Button>Career</Button>
-                        {/* <Button>Certification</Button> */}
                         <Button>Community</Button>
                         <Button>Groups</Button>
-                        <Button>About Us</Button>
                     </div>
                 </PageHeader>
                
-
-                {/* <Content className={`mx-2 md:mx-4 md:mt-2 ${collapsed ? 'layout-container-margin-collapsed' : 'layout-container-margin'}`}> */}
                 <Content className='main-content'>
 
                     <div>
@@ -214,20 +183,6 @@ const UserLayout = ({ children }) => {
                 <Footer className="footer">
                     <p className='text-gray-400 mb-0'>v {packageJson.version}</p>
                 </Footer>
-
-                {/* <Drawer
-                    title={<img src='' alt='bigimg' className="img-fluid" />}
-                    placement="left"
-                    width={220}
-                    onClose={() => setDrawer(false)}
-                    visible={drawer}
-                    className="p-0"
-                    bodyStyle={{ padding: 0 }}
-                >
-                    <div>
-                        <MainSidePanelMenu />
-                    </div>
-                </Drawer> */}
 
             </Layout>
           </Layout>
