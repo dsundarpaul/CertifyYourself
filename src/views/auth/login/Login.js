@@ -39,11 +39,6 @@ const Login = () => {
     if (user) {
         console.log(user)
         navigate('/home')
-
-        dispatch({
-            type: USER_AUTH,
-            payload: user
-        })
     }
 
     return (

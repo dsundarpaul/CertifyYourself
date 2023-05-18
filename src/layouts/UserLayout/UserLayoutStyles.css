@@ -1,15 +1,6 @@
 .admin-layout-header {
     width: 100%;
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: space-between; */
-    /* background-color: #FFCCCC; */
     z-index: 1;
-    /* padding-block: 0 !important; */
-    /* margin-block: 0 !important; */
-    /* padding: 0 !important; */
-    /* margin: 0 !important; */
-    position: fixed;
     display: block !important;
 }
 
@@ -70,12 +61,12 @@
 }
 
 .main-content {
-    margin-top: 3.5rem;
+    /* margin-top: 3.5rem; */
     background-color: white;
 }
 .main-content > div {
     /* p-2 overflow-auto mt-14 */
-    overflow: auto;
+    /* overflow: auto; */
     width: 100%;
 }
 
