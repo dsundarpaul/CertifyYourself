@@ -42,7 +42,7 @@ const Navigations = () => {
                     <Route path="/home" element={<UserLayout><UserHome /></UserLayout>} />
                     <Route path="/subjects" element={<UserLayout><SubjectSelection /></UserLayout>} />
                     <Route path="/feed" element={<UserLayout><CommunityFeed /></UserLayout>} />
-
+                    <Route path="/profile" element={<UserLayout><SubjectSelection /></UserLayout>} />
                 </RouterRoutes>
             </Suspense>
         </BrowserRouter>
