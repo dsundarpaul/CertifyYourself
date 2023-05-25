@@ -21,7 +21,7 @@ const HeroContent = () => {
             className='hero-button'
             onClick={() => navigate('/subjects')}
           >
-            sfshkhskjs;j
+            START
           </Button>
         </div>
       </div>
