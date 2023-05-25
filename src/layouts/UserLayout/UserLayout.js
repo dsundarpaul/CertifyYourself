@@ -77,14 +77,11 @@ const UserLayout = ({ children }) => {
                 >
                     
                     <div className='sub-header'>
-                        <Button onClick={() => { navigate('/home')} }>
-                            Home
-                        </Button>
+                        <Button onClick={() => { navigate('/feed')} }>Community</Button>
+                        <Button onClick={() => { navigate('/')} }>Events</Button>
+                        <Button onClick={() => { navigate('/home')} }>Home</Button>
                         <Button>Career</Button>
-                        <Button onClick={() => { navigate('/feed')} }>
-                            Community
-                        </Button>
-                        <Button>Groups</Button>
+                        <Button>Store</Button>
                     </div>
                 </PageHeader>
                

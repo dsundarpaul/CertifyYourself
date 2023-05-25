@@ -22,27 +22,17 @@ const Navigations = () => {
             <Suspense fallback={<UserLayout><div className="text-center w-100 h-screen pt-40"><Spin /></div></UserLayout>}>
                 <RouterRoutes>
 
-                    <Route path="/*" element={
-                        <GuestLayout>
-                            <NotFound />
-                        </GuestLayout>
-                    } />
-                    <Route path="/login" element={
-                        <GuestLayout>
-                            <Login />
-                        </GuestLayout>
-                    } />
-                    <Route path="/signup" element={
-                        <GuestLayout>
-                            <Signup />
-                        </GuestLayout>
-                    } />
-                    {/* <Route path="/login" element={<GuestLayout><Login /></GuestLayout>} /> */}
+                    {/* AUTH ROUTING */}
+                    <Route path="/*" element={<GuestLayout><NotFound /></GuestLayout>} />
+                    <Route path="/login" element={<GuestLayout><Login /></GuestLayout>} />
+                    <Route path="/signup" element={<GuestLayout><Signup /></GuestLayout>} />
 
+                    {/* USER LAYOUT */}
                     <Route path="/home" element={<UserLayout><UserHome /></UserLayout>} />
                     <Route path="/subjects" element={<UserLayout><SubjectSelection /></UserLayout>} />
                     <Route path="/feed" element={<UserLayout><CommunityFeed /></UserLayout>} />
                     <Route path="/profile" element={<UserLayout><SubjectSelection /></UserLayout>} />
+                    
                 </RouterRoutes>
             </Suspense>
         </BrowserRouter>

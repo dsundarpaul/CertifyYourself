@@ -4,7 +4,7 @@ import { Card, Form, Input, Button } from 'antd'
 import { useDispatch } from 'react-redux'
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth"
 import { auth } from "../../../firebase/clientApp"
-import { USER_AUTH } from "../../../store/auth/types"
+// import { USER_AUTH } from "../../../store/auth/types"
 // import { toggleNetworkLoading } from '../../../store/common/actions'
 // import { doLogin } from '../../../store/auth/actions'
 

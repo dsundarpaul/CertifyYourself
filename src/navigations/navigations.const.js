@@ -43,3 +43,9 @@ export default [
         module: 'SETTINGS'
       },
 ]
+
+export const GOBAL_NAVIGATION_CONST = [
+  {
+    route: '/home'
+  }
+]

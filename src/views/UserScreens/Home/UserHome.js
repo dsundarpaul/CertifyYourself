@@ -4,6 +4,7 @@ import React from 'react'
 import { useNavigate } from 'react-router'
 import './UserHomeStyles.css'
 import { useSelector } from 'react-redux'
+import HeroContent from '../../../components/UserStartScreen/HeroContent'
 
 const UserHome = () => {
   const navigate = useNavigate()
@@ -14,14 +15,7 @@ const UserHome = () => {
 
   return (
     <div className='userHome-main'>
-      <div className='hero-content w-full flex justify-center items-center'>
-        <Button className='hero-button' onClick={handleOnStart}>Start</Button>
-        <div className='hero-top'>
-          <Typography>Name</Typography>
-          <Typography>Rank</Typography>
-        </div>
-        <div className='hero-bot'></div>
-      </div>
+      <HeroContent />
     </div>
   )
 }
