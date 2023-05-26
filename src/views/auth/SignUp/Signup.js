@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useNavigate } from 'react-router-dom'
-import { Card, Form, Input, Button } from 'antd'
+import { Card, Form, Input, Button, DatePicker } from 'antd'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { auth } from "../../../firebase/clientApp";
 import { LOGIN } from "../../../store/auth/types";
@@ -63,11 +63,19 @@ const Signup = () => {
 						</Form.Item>
 
 						<Form.Item
-							label="Conform Password"
+							label="Confirm Password"
 							name="confirmPassword"
 							rules={[{ required: true, message: authError ? authError : 'Please provide valid password.' }]}
 						>
 							<Input.Password />
+						</Form.Item>
+
+						<Form.Item
+							label="Date of birth"
+							name="dob"
+							rules={[{ required: true, message: 'Please provide date of birth.' }]}
+						>
+							<DatePicker className="w-full"/>
 						</Form.Item>
 
 						<Form.Item className="text-center">
