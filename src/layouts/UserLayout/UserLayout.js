@@ -80,8 +80,8 @@ const UserLayout = ({ children }) => {
                         <Button onClick={() => { navigate('/feed')} }>Community</Button>
                         <Button onClick={() => { navigate('/')} }>Events</Button>
                         <Button onClick={() => { navigate('/home')} }>Home</Button>
-                        <Button>Career</Button>
-                        <Button>Store</Button>
+                        <Button onClick={() => { navigate('/')} }>Career</Button>
+                        <Button onClick={() => { navigate('/store')} }>Store</Button>
                     </div>
                 </PageHeader>
                
