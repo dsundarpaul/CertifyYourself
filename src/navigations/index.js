@@ -13,6 +13,7 @@ import SubjectSelection from "../views/UserScreens/SubjectSelection/SubjectSelec
 import Signup from "../views/auth/SignUp/Signup";
 import Community from "../views/UserScreens/Community/Community";
 import NotFound from "../views/auth/NotFound/NotFound";
+import Store from "../views/UserScreens/Store/Store";
 // import LandingLayout from "../layouts/LandingLayout/LandingLayout";
 
 const Navigations = () => {
@@ -31,6 +32,7 @@ const Navigations = () => {
                     <Route path="/home" element={<UserLayout><UserHome /></UserLayout>} />
                     <Route path="/subjects" element={<UserLayout><SubjectSelection /></UserLayout>} />
                     <Route path="/feed" element={<UserLayout><Community /></UserLayout>} />
+                    <Route path="/store" element={<UserLayout><Store /></UserLayout>} />
                     <Route path="/profile" element={<UserLayout><SubjectSelection /></UserLayout>} />
                     
                 </RouterRoutes>
