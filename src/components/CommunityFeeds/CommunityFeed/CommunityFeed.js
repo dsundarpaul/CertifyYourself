@@ -6,7 +6,7 @@ const CommunityFeed = (props) => {
   return (
     <div>
       <Card 
-        title={`By ${props.createdBy}`}
+        title={`By ${props.createdBy},  ${props.createdAt}`}
         className='w-3/4 my-4 ml-2 border-4 !border-l-gray-800'
       >
         <div>Feed content</div>
