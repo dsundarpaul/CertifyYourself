@@ -19,7 +19,7 @@ const HeroContent = () => {
         <div className='w-full flex justify-center'>
           <Button 
             className='hero-button'
-            onClick={() => navigate('/subjects')}
+            onClick={() => navigate('/started')}
           >
             START
           </Button>
