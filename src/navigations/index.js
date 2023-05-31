@@ -15,6 +15,7 @@ import Community from "../views/UserScreens/Community/Community";
 import NotFound from "../views/auth/NotFound/NotFound";
 import Store from "../views/UserScreens/Store/Store";
 import InGameLayout from "../layouts/InGameLayout";
+import UserProfile from "../views/UserScreens/UserProfile";
 // import LandingLayout from "../layouts/LandingLayout/LandingLayout";
 
 const Navigations = () => {
@@ -34,7 +35,7 @@ const Navigations = () => {
                     <Route path="/subjects" element={<UserLayout><SubjectSelection /></UserLayout>} />
                     <Route path="/feed" element={<UserLayout><Community /></UserLayout>} />
                     <Route path="/store" element={<UserLayout><Store /></UserLayout>} />
-                    <Route path="/profile" element={<UserLayout><SubjectSelection /></UserLayout>} />
+                    <Route path="/profile" element={<UserLayout><UserProfile /></UserLayout>} />
 
                     {/* IN GAME SCREENS */}
                     <Route path="/started" element={<InGameLayout><h1>hello, i m in game</h1></InGameLayout>} />

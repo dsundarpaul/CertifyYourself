@@ -85,7 +85,7 @@ const UserLayout = ({ children }) => {
                     </div>
                 </PageHeader>
                
-                <Content className='main-content'>
+                <Content className='main-content p-4'>
 
                     <div>
                         {children}
