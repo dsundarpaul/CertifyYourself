@@ -1,11 +1,11 @@
 import { Layout } from 'antd'
 import React from 'react'
 
-const LandingLayout = ({ childern }) => {
+const LandingLayout = ({ children }) => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
         <Layout.Content>
-            {childern}
+            {children}
         </Layout.Content>
         
     </Layout>
