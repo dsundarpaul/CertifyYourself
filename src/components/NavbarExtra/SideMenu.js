@@ -6,7 +6,6 @@ import { Button, Drawer, Menu } from "antd";
 import { useNavigate } from "react-router";
 import { useSignOut } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/clientApp";
-import SideMenuItems from "./SideMenuItems/SideMenuItems";
 import { SIDENAV } from "../../navigations/vertical/index";
 import TabNavButton from "../TabNavButton/index";
 const SideMenu = ({ user }) => {
@@ -94,7 +93,7 @@ const SideMenu = ({ user }) => {
           </div>
         }
       >
-        {/* <SideMenuItems /> */}
+    
         {SIDENAV.map((item, idx) => {
           return (
             <TabNavButton
