@@ -1,0 +1,18 @@
+.option-btn{
+    width: 150px;
+    height: 100px;
+    font-size: 24px;
+    background-color: #EE404E;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.option-btn:hover{
+    border: 3px solid white !important;
+    color: black !important;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #F6F1F1;
+    border: 0.1px solid black !important;
+    transform: scale(1.05);
+}
