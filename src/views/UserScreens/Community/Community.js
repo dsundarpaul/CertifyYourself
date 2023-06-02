@@ -24,7 +24,7 @@ const Community = () => {
         MOCK.map(i => {
           return (
             <>
-             <CommunityFeed createdBy={i.FeedCreatedBy} />
+             <CommunityFeed createdBy={i.FeedCreatedBy} createdAt={i.FeedCreatedAt} />
             </>
           )
         })

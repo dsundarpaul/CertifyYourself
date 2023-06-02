@@ -15,6 +15,7 @@ import Community from "../views/UserScreens/Community/Community";
 import NotFound from "../views/auth/NotFound/NotFound";
 import Store from "../views/UserScreens/Store/Store";
 import InGameLayout from "../layouts/InGameLayout";
+import InGame from '../views/UserScreens/InGame/InGame';
 import UserProfile from "../views/UserScreens/UserProfile";
 // import LandingLayout from "../layouts/LandingLayout/LandingLayout";
 
@@ -38,7 +39,7 @@ const Navigations = () => {
                     <Route path="/profile" element={<UserLayout><UserProfile /></UserLayout>} />
 
                     {/* IN GAME SCREENS */}
-                    <Route path="/started" element={<InGameLayout><h1>hello, i m in game</h1></InGameLayout>} />
+                    <Route path="/started" element={<InGameLayout><InGame /></InGameLayout>} />
                     
                 </RouterRoutes>
             </Suspense>
