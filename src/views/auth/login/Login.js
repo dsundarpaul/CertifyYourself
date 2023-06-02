@@ -38,7 +38,7 @@ const Login = () => {
 
     if (user) {
         console.log(user)
-        navigate('/home')
+        navigate('/feed')
     }
 
     return (
