@@ -25,6 +25,6 @@ export const SIDENAV = [
   {
     title: 'Settings',
     path: '/settings',
-    icon: <SettingOutlined />
+    icon: <SettingOutlined style={{ fontSize: '40px' }}  />
   }
 ]
