@@ -1,4 +1,4 @@
-import { Button, Form, Input, Typography } from 'antd'
+import { Button, Form, Input, Typography, message } from 'antd'
 import TextArea from 'antd/es/input/TextArea'
 import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -10,6 +10,7 @@ const CreateFeed = () => {
   const [user] = useAuthState(auth)
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
+  const [messageApi, contextHolder] = message.useMessage();
 
   const handleCreateCommunityFeed = async(values) => {
 
@@ -30,8 +31,11 @@ const CreateFeed = () => {
         communityFeedContent: values.feedContent,
       })
 
+      messageApi.success('Sucessfully Created Feed');
+
     } catch (error) {
       console.log(error);
+      messageApi.error('Error Creating Feed');
       setError(error)
     }
 
@@ -44,6 +48,7 @@ const CreateFeed = () => {
 
   return (
     <div>
+      {contextHolder}
       <Typography.Title level={2}>Create Post</Typography.Title>
 
       <Form
