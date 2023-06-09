@@ -1,11 +1,19 @@
 /* eslint-disable */
+import { 
+  SettingOutlined,
+  StarOutlined,
+  TeamOutlined,
+  GlobalOutlined,
+  CalendarOutlined,
+  UserOutlined
+} from '@ant-design/icons'
 
-import { SettingOutlined } from '@ant-design/icons'
-import { StarOutlined } from '@ant-design/icons'
-import { TeamOutlined } from '@ant-design/icons'
-import { GlobalOutlined } from '@ant-design/icons'
-import { CalendarOutlined } from '@ant-design/icons'
 export const SIDENAV = [
+  {
+    title: 'Profile',
+    path: '/profile',
+    icon: <UserOutlined style={{ fontSize: '20px' }}/>
+  },
   {
     title: 'Friends',
     path: '/friends',

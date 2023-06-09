@@ -1,9 +1,13 @@
+import React, { useEffect, useState } from 'react'
+
 import { Button, Form, Input, Typography, message } from 'antd'
 import TextArea from 'antd/es/input/TextArea'
-import React, { useEffect, useState } from 'react'
+
+import { kebabCase } from 'lodash'
+
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, firestore } from '../../../../firebase/clientApp'
-import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore'
+import { doc, runTransaction, serverTimestamp } from 'firebase/firestore'
 
 const CreateFeed = () => {
 
@@ -17,19 +21,41 @@ const CreateFeed = () => {
     setLoading(true)
 
     try {
-      const CommunityFeedRef = doc(firestore, "CommunityFeed", values.feedTitle);
-      const communityDoc = await getDoc(CommunityFeedRef);
+      const communitFeed_uid = encodeURI(kebabCase(values.feedTitle))
+      console.log(communitFeed_uid)
+      const CommunityFeedRef = doc(firestore, "CommunityFeed", communitFeed_uid);
 
-      if (communityDoc.exists()) {
-        throw new Error('these feed exists!')
-      }
+      await runTransaction(firestore, async (transaction) => {
+        
+        const communityDoc = await transaction.get(CommunityFeedRef);
+  
+        if (communityDoc.exists()) {
+          throw new Error('these feed exists!')
+        }
 
-      await setDoc(CommunityFeedRef, {
-        creatorId: user?.uid,
-        createdAt: serverTimestamp(),
-        communityFeedTitle: values.feedTitle,
-        communityFeedContent: values.feedContent,
+        transaction.set(CommunityFeedRef, {
+          creatorId: user?.uid,
+          createdAt: serverTimestamp(),
+          communityFeedTitle: values.feedTitle,
+          communityFeedContent: values.feedContent
+        })
+
+        transaction.set(
+          doc(firestore, `users/${user.uid}/communitySnippets`, communitFeed_uid),
+          {
+            communityId: values.feedTitle,
+            isAuthor: true
+          }
+        )
       })
+
+
+      // await setDoc(CommunityFeedRef, {
+      //   creatorId: user?.uid,
+      //   createdAt: serverTimestamp(),
+      //   communityFeedTitle: values.feedTitle,
+      //   communityFeedContent: values.feedContent,
+      // })
 
       messageApi.success('Sucessfully Created Feed');
 

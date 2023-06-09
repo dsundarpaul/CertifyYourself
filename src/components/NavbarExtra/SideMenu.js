@@ -8,6 +8,7 @@ import { useSignOut } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/clientApp";
 import { SIDENAV } from "../../navigations/vertical/index";
 import TabNavButton from "../TabNavButton/index";
+
 const SideMenu = ({ user }) => {
   const navigate = useNavigate();
 
@@ -29,8 +30,8 @@ const SideMenu = ({ user }) => {
     }
   };
 
-  // const navigateToChangePassword = (() => navigate('/change-password'))
   const logoutUser = (dispatch) => async () => {
+    console.log('sjd;ljsdl;kfjkl;')
     const success = await signOut(auth);
     if (success) {
       alert("Your are signed out");
@@ -43,20 +44,6 @@ const SideMenu = ({ user }) => {
   if (error) {
     alert(error);
   }
-
-  const menu__items = [
-    {
-      label: "View Profile",
-      key: "1",
-      icon: <UserOutlined />,
-    },
-    {
-      label: "Log out",
-      key: "2",
-      icon: <LogoutOutlined />,
-      onClick: logoutUser,
-    },
-  ];
 
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
@@ -87,7 +74,12 @@ const SideMenu = ({ user }) => {
         width="max-content"
         footer={
           <div>
-            <Button className="w-full" danger>
+            <Button 
+              className="w-full" 
+              danger 
+              icon={<LogoutOutlined />}
+              loading={loading}
+            >              
               Logout
             </Button>
           </div>
