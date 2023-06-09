@@ -1,6 +1,7 @@
 import { Avatar, Button, Typography } from 'antd'
 import React from 'react'
 import { useNavigate } from 'react-router'
+import './styles.css'
 
 const HeroContent = () => {
   const navigate = useNavigate();
