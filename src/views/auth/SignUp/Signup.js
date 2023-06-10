@@ -28,7 +28,7 @@ const Signup = () => {
 
 	if (authError) alert(authError.message)
 	if (user) {
-		navigate('/home')
+		navigate('/feed')
 		dispatch({
 			type: LOGIN,
 			payload: user

@@ -1,4 +1,5 @@
-import { Button, Card, Drawer } from 'antd'
+import { Avatar, Button, Card, Drawer, Space } from 'antd'
+import { UserOutlined } from '@ant-design/icons'
 import React, { useState } from 'react'
 import UserProfileEdit from './UserProfileEdit/UserProfileEdit'
 
@@ -13,7 +14,10 @@ const UserProfile = () => {
   return (
     <div>
       <Card>
-        <Button onClick={handleProfileEdit}>Edit profile</Button>
+        <Space direction="vertical" size={16}>
+          <Avatar size={100} shape="square" icon={<UserOutlined />} />
+          <Button onClick={handleProfileEdit}>Edit profile</Button>
+        </Space>
       </Card>
 
       <Drawer title="Profile Edit" placement='right' onClose={handleDrawerClose} open={open} size='large'>

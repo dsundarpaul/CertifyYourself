@@ -1,34 +1,19 @@
 import React from 'react'
 import CommunityFeed from '../../../components/CommunityFeeds/CommunityFeed/CommunityFeed'
+import { Button } from 'antd'
+import { useNavigate } from 'react-router'
+import CommunityFeeds from './CommunityFeeds/CommunityFeeds'
 
 const Community = () => {
   
-  const MOCK = [
-    {
-      FeedCreatedBy: "Santosh",
-      FeedCreatedAt: "10/10/2022"
-    },
-    {
-      FeedCreatedBy: "Alex",
-      FeedCreatedAt: "10/10/2022"
-    },
-    {
-      FeedCreatedBy: "Jennifer",
-      FeedCreatedAt: "10/10/2022"
-    },
-  ]
+  const naviagte = useNavigate()
 
   return (
     <div>
-      {
-        MOCK.map(i => {
-          return (
-            <>
-             <CommunityFeed createdBy={i.FeedCreatedBy} />
-            </>
-          )
-        })
-      }
+      <Button onClick={() => naviagte('/feed-create')}>Create Post</Button>
+      <div>
+        <CommunityFeeds />
+      </div>
     </div>
   )
 }
