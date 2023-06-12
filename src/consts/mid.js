@@ -1,5 +1,4 @@
-export const BIO = {
-  questions: [
+export const BIO = [
     {
       question:
         "What is the process by which plants convert sunlight into energy?",
@@ -102,5 +101,5 @@ export const BIO = {
         },
       ],
     },
-  ],
-};
+  ];
+
