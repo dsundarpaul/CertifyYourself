@@ -1,62 +1,40 @@
 import React, { useState } from "react";
-import { USER_LOGOUT } from "../../store/auth/types";
 
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Drawer, Menu } from "antd";
-import { useNavigate } from "react-router";
 import { useSignOut } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/clientApp";
 import { SIDENAV } from "../../navigations/vertical/index";
 import TabNavButton from "../TabNavButton/index";
+import { useDispatch, useSelector } from "react-redux";
+import { closeTheSideDrawer, openTheSideDrawer } from "../../store/global-state/actions";
+import { logoutFirebaseUser } from "../../store/auth/actions";
 
 const SideMenu = ({ user }) => {
-  const navigate = useNavigate();
+
+  const dispatch = useDispatch()
 
   const [signOut, loading, error] = useSignOut(auth);
 
-  const openProfile = () => {
-    navigate("/profile");
-  };
-  const doLogout = () => {
-    navigate("/login");
-  };
-
-  const handleMenuClick = (e) => {
-    if (e.key === "1") {
-      openProfile();
-    }
-    if (e.key === "2") {
-      doLogout();
-    }
-  };
+  const open = useSelector(state => state.global.drawerState)
 
   const logoutUser = (dispatch) => async () => {
-    console.log('sjd;ljsdl;kfjkl;')
     const success = await signOut(auth);
     if (success) {
-      alert("Your are signed out");
-      dispatch({
-        type: USER_LOGOUT,
-      });
+      dispatch(logoutFirebaseUser());
     }
+    dispatch(closeTheSideDrawer())
   };
 
-  if (error) {
-    alert(error);
-  }
+  if (error) { alert(error); }
 
-  const [open, setOpen] = useState(false);
-  const showDrawer = () => {
-    setOpen(true);
-  };
-  const onClose = () => {
-    setOpen(false);
-  };
+  const showDrawer = () => dispatch(openTheSideDrawer())
+  const closeDrawer = () => dispatch(closeTheSideDrawer())
+
   return (
     <div className="flex items-center">
       <div className="mr-4 grid">
         <p className={`text-gray-600 mb-0 font-semibold`}>{user.email}</p>
-        {/* <p style={{ lineHeight: '10px' }} className={`text-gray-400 mb-0`}>{userData.user.role}</p> */}
       </div>
 
       <Button
@@ -69,7 +47,7 @@ const SideMenu = ({ user }) => {
 
       <Drawer
         placement="right"
-        onClose={onClose}
+        onClose={closeDrawer}
         open={open}
         width="max-content"
         footer={
@@ -79,6 +57,7 @@ const SideMenu = ({ user }) => {
               danger 
               icon={<LogoutOutlined />}
               loading={loading}
+              onClick={logoutUser()}
             >              
               Logout
             </Button>
