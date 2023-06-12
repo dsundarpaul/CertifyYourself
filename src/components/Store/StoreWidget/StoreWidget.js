@@ -75,60 +75,62 @@ const StoreWidget = () => {
         </div>
       </Card>
 
-      {<Row gutter={[16, 16]} justify="start" style={{ width: "100%" }}>
-        <Col xs={24} sm={12} md={6}>
-          <Card
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: 225,
-              borderWidth: 10,
-            }}
-          >
-            <p className="text-center">Card content 1</p>
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={6}>
-          <Card
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: 225,
-              borderWidth: 10,
-            }}
-          >
-            <p style={{ textAlign: "center" }}>Card content 2</p>
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={6}>
-          <Card
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: 225,
-              borderWidth: 10,
-            }}
-          >
-            <p>Card content 3</p>
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={6}>
-          <Card
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: 225,
-              borderWidth: 10,
-            }}
-          >
-            <p style={{ textAlign: "center" }}>Card content 4</p>
-          </Card>
-        </Col>
-      </Row>}
+      {
+        <Row gutter={[16, 16]} justify="start" style={{ width: "100%" }}>
+          <Col xs={24} sm={12} md={6}>
+            <Card
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: 225,
+                borderWidth: 10,
+              }}
+            >
+              <p className="text-center">Card content 1</p>
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
+            <Card
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: 225,
+                borderWidth: 10,
+              }}
+            >
+              <p style={{ textAlign: "center" }}>Card content 2</p>
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
+            <Card
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: 225,
+                borderWidth: 10,
+              }}
+            >
+              <p>Card content 3</p>
+            </Card>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
+            <Card
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: 225,
+                borderWidth: 10,
+              }}
+            >
+              <p style={{ textAlign: "center" }}>Card content 4</p>
+            </Card>
+          </Col>
+        </Row>
+      }
     </div>
   );
 };

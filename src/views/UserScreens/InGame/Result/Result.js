@@ -1,10 +1,12 @@
-import React from 'react';
-import { Button, Result } from 'antd';
-import gif from '../../../../assets/logo/dog.gif';
+import React from "react";
+import { Button, Result } from "antd";
+import gif from "../../../../assets/logo/dog.gif";
 
 const ResultScreen = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <Result
         status="success"
         title="GALTI SE PASS HOGAYA"
@@ -14,7 +16,7 @@ const ResultScreen = () => {
           <Button key="Logout">Logout</Button>,
         ]}
       />
-      <img src={gif} alt="Result GIF" style={{ marginTop: '20px' }} />
+      <img src={gif} alt="Result GIF" style={{ marginTop: "20px" }} />
     </div>
   );
 };
