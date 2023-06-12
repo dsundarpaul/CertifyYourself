@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "./types"
+import { LOGIN, LOGOUT, USER_LOGOUT } from "./types"
 import { message } from 'antd'
 // import { toggleNetworkLoading } from "../common/actions"
 import ServerApi from "../../utility/ServerApi"
@@ -118,4 +118,17 @@ export const validateResetPasswordToken = (rawData, successCallback, errorCallba
         errorCallback()
       }
     })
+}
+
+/******* ================
+
+
+FIREBASE AUTH ACTION FUNCTIONS
+
+
+=================== *******/
+
+
+export const logoutFirebaseUser = () => dispatch => {
+  dispatch({ type: USER_LOGOUT })
 }
