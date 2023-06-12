@@ -1,7 +1,4 @@
-import { Button, Card, Drawer, FloatButton, Form, Input, InputNumber } from 'antd'
-import ButtonGroup from 'antd/es/button/button-group'
-import PickerButton from 'antd/es/date-picker/PickerButton'
-import FormItem from 'antd/es/form/FormItem'
+import { Button, Form, Input, Space } from 'antd'
 import React from 'react'
 
 const UserProfileEdit = () => {
@@ -11,23 +8,23 @@ const UserProfileEdit = () => {
         <Form.Item>
           <Input placeholder="Username" />
         </Form.Item>
-        <FormItem>
+        <Form.Item>
           <Input placeholder="State" />
-        </FormItem>
-        <FormItem>
+        </Form.Item>
+        <Form.Item>
           <Input placeholder="Country" />
-        </FormItem>
-        <FormItem>
+        </Form.Item>
+        <Form.Item>
           <Input placeholder="School/Uni" />
-        </FormItem>
-        <FormItem>
+        </Form.Item>
+        <Form.Item>
           <Input type='Integer' placeholder='Phone' />
-        </FormItem>
+        </Form.Item>
       </Form>
-      <div>
-        <Button onClick={() => {navigate('/')}}>Save</Button>
-        <Button onClick={() => {navigate('/')}}>cancel</Button>
-      </div>
+      <Space wrap>
+        <Button htmlType="submit">Save</Button>
+        <Button onClick={() => {navigate('/')}}>Cancel</Button>
+      </Space>
   
     </div>
   )
