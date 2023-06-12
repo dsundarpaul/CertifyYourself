@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const globalReducer = (state = initialState, action) => {
-  console.log('in reducer')
+
     switch (action.type) {
 
       case DRAWER_OPEN: return { ...state, drawerState: action.payload };
