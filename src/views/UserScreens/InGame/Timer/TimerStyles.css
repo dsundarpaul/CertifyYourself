@@ -1,0 +1,23 @@
+.timer-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .timer-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #f1f1f1;
+  }
+  
+  .timer-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
