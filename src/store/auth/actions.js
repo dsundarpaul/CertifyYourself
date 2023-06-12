@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, USER_LOGOUT } from "./types"
+import { LOGIN, USER_LOGOUT } from "./types"
 import { message } from 'antd'
 // import { toggleNetworkLoading } from "../common/actions"
 import ServerApi from "../../utility/ServerApi"
