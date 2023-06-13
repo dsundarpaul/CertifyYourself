@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { auth } from "../../../firebase/clientApp";
 import { LOGIN } from "../../../store/auth/types";
 import { useDispatch } from "react-redux";
+import ComicButton from "../../../components/FormComponents/ComicButton/ComicButton";
 
 const Signup = () => {
 
@@ -79,9 +80,9 @@ const Signup = () => {
 						</Form.Item>
 
 						<Form.Item className="text-center">
-							<Button type="dashed" htmlType="submit" loading={loading}>
-								Sign Up
-							</Button>
+							<ComicButton htmlType="submit" loading={loading}>
+                                Sign Up
+                            </ComicButton>
 						</Form.Item>
 
 					</Form>
