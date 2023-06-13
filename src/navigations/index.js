@@ -18,6 +18,8 @@ import InGameLayout from "../layouts/InGameLayout";
 import InGame from '../views/UserScreens/InGame/InGame';
 import UserProfile from "../views/UserScreens/UserProfile";
 import CreateFeed from "../views/UserScreens/Community/CreateFeed/CreateFeed";
+import Result from "../views/UserScreens/InGame/Result/Result";
+import ResultScreen from "../views/UserScreens/InGame/Result/Result";
 // import LandingLayout from "../layouts/LandingLayout/LandingLayout";
 
 const Navigations = () => {
@@ -44,6 +46,7 @@ const Navigations = () => {
 
                     {/* IN GAME SCREENS */}
                     <Route path="/started" element={<InGameLayout><InGame /></InGameLayout>} />
+                    <Route path="/result" element={<InGameLayout><ResultScreen /></InGameLayout>} />
                     
                 </RouterRoutes>
             </Suspense>
