@@ -78,9 +78,9 @@ const UserLayout = ({ children }) => {
                     
                     <div className='sub-header'>
                         <Button onClick={() => { navigate('/feed')} }>Community</Button>
-                        <Button onClick={() => { navigate('/')} }>Events</Button>
+                        <Button onClick={() => { navigate('/events')} }>Events</Button>
                         <Button onClick={() => { navigate('/home')} }>Home</Button>
-                        <Button onClick={() => { navigate('/')} }>Career</Button>
+                        <Button onClick={() => { navigate('/career')} }>Career</Button>
                         <Button onClick={() => { navigate('/store')} }>Store</Button>
                     </div>
                 </PageHeader>

@@ -20,6 +20,8 @@ import UserProfile from "../views/UserScreens/UserProfile";
 import CreateFeed from "../views/UserScreens/Community/CreateFeed/CreateFeed";
 import Result from "../views/UserScreens/InGame/Result/Result";
 import ResultScreen from "../views/UserScreens/InGame/Result/Result";
+import Events from "../views/UserScreens/Events/Events";
+import Career from "../views/UserScreens/Career/Career";
 // import LandingLayout from "../layouts/LandingLayout/LandingLayout";
 
 const Navigations = () => {
@@ -43,6 +45,10 @@ const Navigations = () => {
 
                     <Route path="/store" element={<UserLayout><Store /></UserLayout>} />
                     <Route path="/profile" element={<UserLayout><UserProfile /></UserLayout>} />
+
+                    <Route path="/events" element={<UserLayout><Events /></UserLayout>} />
+
+                    <Route path="/career" element={<UserLayout><Career /></UserLayout>} />
 
                     {/* IN GAME SCREENS */}
                     <Route path="/started" element={<InGameLayout><InGame /></InGameLayout>} />
