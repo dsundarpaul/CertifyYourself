@@ -1,7 +1,8 @@
-import { DRAWER_OPEN, DRAWER_CLOSE } from "./types"
+import { DRAWER_OPEN, DRAWER_CLOSE, USER_EDIT_DRAWER_CLOSE, USER_EDIT_DRAWER_OPEN } from "./types"
 
 const initialState = {
-  drawerState: false
+  drawerState: false,
+  userEditDrawer: false
 }
 
 const globalReducer = (state = initialState, action) => {
@@ -12,6 +13,9 @@ const globalReducer = (state = initialState, action) => {
 
       case DRAWER_CLOSE: return { ...state, drawerState: action.payload };
 
+      case USER_EDIT_DRAWER_OPEN: return { ...state, userEditDrawer: action.payload };
+
+      case USER_EDIT_DRAWER_CLOSE: return { ...state, userEditDrawer: action.payload };
       default: return state
     }
 }
