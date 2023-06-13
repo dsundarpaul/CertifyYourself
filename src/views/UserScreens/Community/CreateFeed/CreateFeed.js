@@ -22,7 +22,7 @@ const CreateFeed = () => {
 
     try {
       const communitFeed_uid = encodeURI(kebabCase(values.feedTitle))
-      console.log(communitFeed_uid)
+      console.log(user)
       const CommunityFeedRef = doc(firestore, "CommunityFeed", communitFeed_uid);
 
       await runTransaction(firestore, async (transaction) => {

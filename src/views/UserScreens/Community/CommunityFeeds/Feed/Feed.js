@@ -1,8 +1,14 @@
+import { Card } from 'antd'
 import React from 'react'
 
-const Feed = () => {
+const Feed = ({ feedTitle, feedContent}) => {
   return (
-    <div>Feed</div>
+    <Card 
+      className='border-2'
+      title={feedTitle}
+    >
+      {feedContent}
+    </Card>
   )
 }
 
