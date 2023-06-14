@@ -8,6 +8,7 @@ import { kebabCase } from 'lodash'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, firestore } from '../../../../firebase/clientApp'
 import { doc, runTransaction, serverTimestamp } from 'firebase/firestore'
+import { useNavigate } from 'react-router'
 
 const CreateFeed = () => {
 
@@ -15,6 +16,7 @@ const CreateFeed = () => {
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
   const [messageApi, contextHolder] = message.useMessage();
+  const navigate = useNavigate()
 
   const handleCreateCommunityFeed = async(values) => {
 
@@ -122,7 +124,7 @@ const CreateFeed = () => {
         </Form.Item>
       </Form>
 
-      <Button>Cancel</Button>
+      <Button onClick = {() => navigate('/feed')} >Cancel</Button>
     </div>
   )
 }

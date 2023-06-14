@@ -31,7 +31,7 @@ export const SIDENAV = [
   },
   {
     title: 'Community',
-    path: '/community',
+    path: '/feed',
     icon: <GlobalOutlined style={{ fontSize: '20px' }}  />
   },
   {
