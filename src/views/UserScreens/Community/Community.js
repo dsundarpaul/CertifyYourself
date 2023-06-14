@@ -6,11 +6,11 @@ import CommunityFeeds from './CommunityFeeds/CommunityFeeds'
 
 const Community = () => {
   
-  const naviagte = useNavigate()
+  const navigate = useNavigate()
 
   return (
     <div>
-      <Button onClick={() => naviagte('/feed-create')}>Create Post</Button>
+      <Button onClick={() => navigate('/feed-create')}>Create Post</Button>
       <div>
         <CommunityFeeds />
       </div>
