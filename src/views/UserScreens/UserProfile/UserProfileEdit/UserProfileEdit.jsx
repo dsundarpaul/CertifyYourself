@@ -1,17 +1,58 @@
 import { Button, Form, Input, Space } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
+
+import { message } from 'antd'
+
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth, firestore } from '../../../../firebase/clientApp'
+import { doc, runTransaction, serverTimestamp } from 'firebase/firestore'
 
 const UserProfileEdit = () => {
 
   const save = (values) =>{
     console.log(values)
   }
+
+  const [user] = useAuthState(auth);
+  const [loading, setLoading] = useState();
+  const [error, setError] = useState();
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const handleUserProfileEdit = async(values) => {
+
+    setLoading(true)
+
+    try {
+      await runTransaction(firestore, async (transaction) => {
+        transaction.set(
+          doc(firestore, `users/${user?.uid}/userDetails`, values.username),
+          {
+            userName: values.username,
+            userState: values.state,
+            userCountry: values.country,
+            userSchoolOrUni: values.school,
+            userPhoneNumber: values.phone
+          }
+        )
+      })
+
+      messageApi.success('Sucessfully Updated User Information');
+
+    } catch (error) {
+      console.log(error);
+      messageApi.error('Error Updating User Information');
+      setError(error)
+    }
+
+    setLoading(false)
+  }
+
   return (
     <div>
       <Form
         name="default"
         initialValues={{ remember: true }}
-        onFinish={save}
+        onFinish={handleUserProfileEdit}
         autoComplete="off"
         layout="vertical"
       >

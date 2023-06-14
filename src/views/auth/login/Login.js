@@ -67,7 +67,7 @@ const Login = () => {
                             label="Password"
                             name="password"
                             rules={[{ required: true, message: 'Please provide valid password.' }]}
-                            help={ <a onClick={() => {}} >Forgot Password?</a> }
+                            help={ <a className='ml-1 text-xs' onClick={() => {}} >Forgot Password?</a> }
                         >
                             <Input.Password />
                         </Form.Item>
