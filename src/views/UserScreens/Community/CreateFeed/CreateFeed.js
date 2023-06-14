@@ -7,7 +7,7 @@ import { kebabCase } from 'lodash'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, firestore } from '../../../../firebase/clientApp'
-import { doc, runTransaction, serverTimestamp } from 'firebase/firestore'
+import { collection, doc, getDocs, runTransaction, serverTimestamp } from 'firebase/firestore'
 import { useNavigate } from 'react-router'
 
 const CreateFeed = () => {
@@ -35,7 +35,19 @@ const CreateFeed = () => {
           throw new Error('these feed exists!')
         }
 
+        let userData = []
+        await getDocs(collection(firestore, `users/${user.uid}/userDetails`))
+        .then(res => {
+          userData = res.docs.map((doc) => ({ ...doc.data() }))
+        })
+        .catch(err => [
+          console.log(err)
+        ])
+
+        console.log(userData)
+
         transaction.set(CommunityFeedRef, {
+          creatorName: userData[0]?.userName ? userData[0].userName : '',
           creatorId: user?.uid,
           createdAt: serverTimestamp(),
           communityFeedTitle: values.feedTitle,

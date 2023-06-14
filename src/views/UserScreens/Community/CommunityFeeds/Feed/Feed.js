@@ -2,7 +2,7 @@ import { Button, Card, Popconfirm } from "antd";
 import React from "react";
 import { DeleteOutlined, EditOutlined, QuestionCircleOutlined } from "@ant-design/icons";
 
-const Feed = ({ author, feedTitle, feedContent }) => {
+const Feed = ({ author, isAuthor, feedTitle, feedContent }) => {
 
   const handleDeleteConfirm = () => {
     
@@ -13,7 +13,7 @@ const Feed = ({ author, feedTitle, feedContent }) => {
       className="border-2"
       title={feedTitle}
       extra={
-        author ? (
+        isAuthor ? (
           <div className="ml-4">
             <Popconfirm
               title="Delete your feed"
@@ -33,6 +33,7 @@ const Feed = ({ author, feedTitle, feedContent }) => {
         )
       }
     >
+      {author} : 
       {feedContent}
     </Card>
   );
