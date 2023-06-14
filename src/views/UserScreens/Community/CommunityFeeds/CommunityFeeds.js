@@ -26,7 +26,8 @@ const CommunityFeeds = () => {
               key={idx} 
               feedTitle={feed.communityFeedTitle} 
               feedContent={feed.communityFeedContent}
-              author={feed.creatorId === user.uid ? true : false}
+              isAuthor={feed.creatorId === user.uid ? true : false}
+              author={feed.creatorName}
             />
           );
         })
