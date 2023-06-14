@@ -2,6 +2,7 @@ import { Button, Form, Input, Space } from 'antd'
 import React from 'react'
 
 const UserProfileEdit = () => {
+
   const save = (values) =>{
     console.log(values)
   }
@@ -55,11 +56,12 @@ const UserProfileEdit = () => {
         >
           <Input type="Integer" />
         </Form.Item>
-        <Button htmlType="submit">Save</Button>
+
+        <Space wrap>
+          <Button htmlType="submit">Save</Button>
+          <Button >Cancel</Button>
+        </Space>
       </Form>
-      <Space wrap>
-        <Button >Cancel</Button>
-      </Space>
     </div>
   );
 };

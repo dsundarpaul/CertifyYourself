@@ -15,16 +15,16 @@ export const openTheSideDrawer = () => dispatch => {
   })
 }
 
-export const userEditDrawerOpen = () => dispatch => {
+export const openUserEditDrawer = () => dispatch => {
   dispatch({
     type: USER_EDIT_DRAWER_OPEN,
-    payload: false
+    payload: true
   })
 }
 
-export const userEditDrawerClose= () => dispatch => {
+export const closeUserEditDrawer = () => dispatch => {
   dispatch({
     type: USER_EDIT_DRAWER_CLOSE,
-    payload: true
+    payload: false
   })
 }
