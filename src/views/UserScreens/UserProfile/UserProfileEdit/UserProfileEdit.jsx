@@ -6,17 +6,17 @@ import { message } from 'antd'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, firestore } from '../../../../firebase/clientApp'
 import { doc, runTransaction, serverTimestamp } from 'firebase/firestore'
+import { useDispatch } from 'react-redux'
+import { closeUserEditDrawer } from '../../../../store/global-state/actions'
 
 const UserProfileEdit = () => {
-
-  const save = (values) =>{
-    console.log(values)
-  }
 
   const [user] = useAuthState(auth);
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
   const [messageApi, contextHolder] = message.useMessage();
+
+  const dispatch = useDispatch()
 
   const handleUserProfileEdit = async(values) => {
 
@@ -45,6 +45,7 @@ const UserProfileEdit = () => {
     }
 
     setLoading(false)
+    dispatch(closeUserEditDrawer())
   }
 
   return (
@@ -99,8 +100,8 @@ const UserProfileEdit = () => {
         </Form.Item>
 
         <Space wrap>
-          <Button htmlType="submit">Save</Button>
-          <Button >Cancel</Button>
+          <Button htmlType="submit" loading={loading}>Save</Button>
+          <Button onClick={() => dispatch(closeUserEditDrawer())}>Cancel</Button>
         </Space>
       </Form>
     </div>

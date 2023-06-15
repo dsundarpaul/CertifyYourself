@@ -13,15 +13,19 @@ const Feed = ({ author, isAuthor, feedTitle, feedContent }) => {
   const handleDeleteConfirm = () => {};
 
   const navigateTo = () => {
-    console.log("helllooo")
+    
     const communitFeed_uid = encodeURI(kebabCase(feedTitle));
     navigate(`/feed-edit/${communitFeed_uid}`);
   };
 
+  const { Meta } = Card;
+
+  
+  
   return (
     <Card
       className="border-2"
-      title={feedTitle}
+      // title={author}
       extra={
         isAuthor ? (
           <div className="ml-4">
@@ -36,14 +40,19 @@ const Feed = ({ author, isAuthor, feedTitle, feedContent }) => {
             >
               <Button className="mr-2" danger icon={<DeleteOutlined />} />
             </Popconfirm>
-            <Button onClick={navigateTo()} icon={<EditOutlined />} />
+            <Button icon={<EditOutlined />} onClick={navigateTo} />
           </div>
         ) : (
           <></>
         )
       }
     >
-      {author} :{feedContent}
+      <Meta
+        title={feedTitle}
+        description={author}
+      />
+      <br />
+      {feedContent}
     </Card>
   );
 };
