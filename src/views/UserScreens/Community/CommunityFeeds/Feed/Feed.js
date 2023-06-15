@@ -4,6 +4,8 @@ import { DeleteOutlined, EditOutlined, QuestionCircleOutlined } from "@ant-desig
 
 const Feed = ({ author, isAuthor, feedTitle, feedContent }) => {
 
+  const { Meta } = Card;
+
   const handleDeleteConfirm = () => {
     
   }
@@ -11,7 +13,7 @@ const Feed = ({ author, isAuthor, feedTitle, feedContent }) => {
   return (
     <Card
       className="border-2"
-      title={feedTitle}
+      // title={author}
       extra={
         isAuthor ? (
           <div className="ml-4">
@@ -33,7 +35,11 @@ const Feed = ({ author, isAuthor, feedTitle, feedContent }) => {
         )
       }
     >
-      {author} : 
+      <Meta
+        title={feedTitle}
+        description={author}
+      />
+      <br />
       {feedContent}
     </Card>
   );
