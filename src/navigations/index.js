@@ -17,8 +17,7 @@ import Store from "../views/UserScreens/Store/Store";
 import InGameLayout from "../layouts/InGameLayout";
 import InGame from '../views/UserScreens/InGame/InGame';
 import UserProfile from "../views/UserScreens/UserProfile";
-import CreateFeed from "../views/UserScreens/Community/CreateFeed/CreateFeed";
-import Result from "../views/UserScreens/InGame/Result/Result";
+import CreateEditFeed from "../views/UserScreens/Community/CreateEditFeed/CreateEditFeed";
 import ResultScreen from "../views/UserScreens/InGame/Result/Result";
 import Events from "../views/UserScreens/Events/Events";
 import Career from "../views/UserScreens/Career/Career";
@@ -41,7 +40,8 @@ const Navigations = () => {
                     <Route path="/subjects" element={<UserLayout><SubjectSelection /></UserLayout>} />
 
                     <Route path="/feed" element={<UserLayout><Community /></UserLayout>} />
-                    <Route path="/feed-create" element={<UserLayout><CreateFeed /></UserLayout>} />
+                    <Route path="/feed-create" element={<UserLayout><CreateEditFeed isEditing={false} /></UserLayout>} />
+                    <Route path="/feed-edit/:feedId" element={<UserLayout><CreateEditFeed isEditing={true} /></UserLayout>} />
 
                     <Route path="/store" element={<UserLayout><Store /></UserLayout>} />
                     <Route path="/profile" element={<UserLayout><UserProfile /></UserLayout>} />

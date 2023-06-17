@@ -9,10 +9,12 @@ import TabNavButton from "../TabNavButton/index";
 import { useDispatch, useSelector } from "react-redux";
 import { closeTheSideDrawer, openTheSideDrawer } from "../../store/global-state/actions";
 import { logoutFirebaseUser } from "../../store/auth/actions";
+import { useNavigate } from "react-router";
 
 const SideMenu = ({ user }) => {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [signOut, loading, error] = useSignOut(auth);
 
@@ -21,6 +23,7 @@ const SideMenu = ({ user }) => {
   const logoutUser = (dispatch) => async () => {
     const success = await signOut(auth);
     if (success) {
+      navigate('/login')
       dispatch(logoutFirebaseUser());
     }
     dispatch(closeTheSideDrawer())
