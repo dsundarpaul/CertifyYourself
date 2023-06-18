@@ -32,6 +32,7 @@ const Navigations = () => {
 
                     {/* AUTH ROUTING */}
                     <Route path="/*" element={<GuestLayout><NotFound /></GuestLayout>} />
+                    <Route path="/" element={<GuestLayout><Login /></GuestLayout>} />
                     <Route path="/login" element={<GuestLayout><Login /></GuestLayout>} />
                     <Route path="/signup" element={<GuestLayout><Signup /></GuestLayout>} />
 

@@ -44,10 +44,10 @@ const CreateEditFeed = ({ isEditing }) => {
           console.log(err)
         ])
 
-        console.log(userData)
+        const latestUsername = userData.length - 1;
 
         transaction.set(CommunityFeedRef, {
-          creatorName: userData[0]?.userName ? userData[0].userName : '',
+          creatorName: userData[latestUsername]?.userName ? userData[latestUsername].userName : '',
           creatorId: user?.uid,
           createdAt: serverTimestamp(),
           communityFeedTitle: values.feedTitle,
