@@ -13,6 +13,4 @@ export const useGetCommunityFeed = async(callBack) => {
     .catch(err => [
       console.log(err)
     ])
-
-  // return feedData 
 }
