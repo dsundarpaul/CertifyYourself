@@ -34,7 +34,7 @@ const SideMenu = ({ user }) => {
   return (
     <div className="flex items-center">
       <div className="mr-4 grid">
-        <p className={`text-gray-600 mb-0 font-semibold`}>{user.email}</p>
+        <p className={`text-gray-600 mb-4 font-semibold d-flex justify-content-center align-items `}>{user.email}</p>
       </div>
 
       <Button
