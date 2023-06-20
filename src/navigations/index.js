@@ -21,6 +21,7 @@ import CreateEditFeed from "../views/UserScreens/Community/CreateEditFeed/Create
 import ResultScreen from "../views/UserScreens/InGame/Result/Result";
 import Events from "../views/UserScreens/Events/Events";
 import Career from "../views/UserScreens/Career/Career";
+import SignUpSteps from "../views/auth/SignUp/steps/SignUpSteps";
 // import LandingLayout from "../layouts/LandingLayout/LandingLayout";
 
 const Navigations = () => {
@@ -35,6 +36,7 @@ const Navigations = () => {
                     <Route path="/" element={<GuestLayout><Login /></GuestLayout>} />
                     <Route path="/login" element={<GuestLayout><Login /></GuestLayout>} />
                     <Route path="/signup" element={<GuestLayout><Signup /></GuestLayout>} />
+                    <Route path="/steps" element={<GuestLayout><SignUpSteps /></GuestLayout>} />
 
                     {/* USER LAYOUT */}
                     <Route path="/home" element={<UserLayout><UserHome /></UserLayout>} />
