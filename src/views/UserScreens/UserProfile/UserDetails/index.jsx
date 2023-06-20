@@ -1,15 +1,31 @@
-import { Avatar, Button, Card, Col, Row, Space, Typography } from 'antd'
+import { Avatar, Button, Card, Col, Menu, Row, Space, Typography } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import React from 'react'
 import { openUserEditDrawer } from '../../../../store/global-state/actions'
 import { useDispatch } from 'react-redux'
 import ContestWidget from '../../../../components/widgets/ContestWidget/ContestWidget'
 
-const UserDetails = ({ userData }) => {
+const UserProfileWidget = ({ children }) => {
 
   const dispatch = useDispatch()
 
   const handleProfileEditDrawerOpen = () => dispatch(openUserEditDrawer())
+
+  function getItem(label, key, icon, children, type) {
+    return {
+      key,
+      icon,
+      children,
+      label,
+      type,
+    };
+  }
+  const items = [
+      getItem('Profile Info', '1'),
+      getItem('Blog', '2'),
+      getItem('Data', '3'),
+
+    ];
 
   return (
     <div>
@@ -21,31 +37,18 @@ const UserDetails = ({ userData }) => {
               <Button onClick={handleProfileEditDrawerOpen}>Edit profile</Button>
             </Space>
           </Card>
+
+          <Menu
+            onClick={() => {}}
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            mode="inline"
+            items={items}
+          />
         </Col>
 
         <Col xs={24} md={20} lg={16}>
-          <Card className='bg-yellow-100'>
-            <Typography.Title level={3}>
-              {userData?.userName}
-            </Typography.Title>
-            {userData?.rank || 'unranked'}
-
-            <Typography>
-              Total Test Given:
-            </Typography>
-
-            <Typography>
-              Total Contributes:
-            </Typography>
-
-            <Typography>
-              Last Visit
-            </Typography>
-
-            <Typography>
-              Registered
-            </Typography>
-          </Card>
+          {children}
         </Col>
 
         <Col xs={24} md={12} lg={4}>
@@ -56,4 +59,4 @@ const UserDetails = ({ userData }) => {
   )
 }
 
-export default UserDetails
+export default UserProfileWidget
