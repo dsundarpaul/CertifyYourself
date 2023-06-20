@@ -21,6 +21,8 @@ import CreateEditFeed from "../views/UserScreens/Community/CreateEditFeed/Create
 import ResultScreen from "../views/UserScreens/InGame/Result/Result";
 import Events from "../views/UserScreens/Events/Events";
 import Career from "../views/UserScreens/Career/Career";
+import UserProfileWidget from "../views/UserScreens/UserProfile/UserDetails";
+import UserDetails from "../views/UserScreens/UserProfile/UserDetails/UserProfileMenus/UserDetails/UserDetails";
 // import LandingLayout from "../layouts/LandingLayout/LandingLayout";
 
 const Navigations = () => {
@@ -45,7 +47,10 @@ const Navigations = () => {
                     <Route path="/feed-edit/:feedId" element={<UserLayout><CreateEditFeed isEditing={true} /></UserLayout>} />
 
                     <Route path="/store" element={<UserLayout><Store /></UserLayout>} />
-                    <Route path="/profile" element={<UserLayout><UserProfile /></UserLayout>} />
+
+                    {/* USER PROFILE */}
+                    {/* <Route path="/profile" element={<UserLayout><UserProfile /></UserLayout>} /> */}
+                    <Route path="/profile" element={<UserLayout><UserProfileWidget><UserDetails /></UserProfileWidget></UserLayout>} />
 
                     <Route path="/events" element={<UserLayout><Events /></UserLayout>} />
 
