@@ -10,7 +10,7 @@ import { auth, firestore } from '../../../../firebase/clientApp'
 import { collection, doc, getDocs, runTransaction, serverTimestamp } from 'firebase/firestore'
 import { useNavigate } from 'react-router'
 
-const CreateFeed = () => {
+const CreateEditFeed = ({ isEditing }) => {
 
   const [user] = useAuthState(auth)
   const [loading, setLoading] = useState();
@@ -44,10 +44,10 @@ const CreateFeed = () => {
           console.log(err)
         ])
 
-        console.log(userData)
+        const latestUsername = userData.length - 1;
 
         transaction.set(CommunityFeedRef, {
-          creatorName: userData[0]?.userName ? userData[0].userName : '',
+          creatorName: userData[latestUsername]?.userName ? userData[latestUsername].userName : '',
           creatorId: user?.uid,
           createdAt: serverTimestamp(),
           communityFeedTitle: values.feedTitle,
@@ -62,7 +62,6 @@ const CreateFeed = () => {
           }
         )
       })
-
 
       // await setDoc(CommunityFeedRef, {
       //   creatorId: user?.uid,
@@ -89,7 +88,7 @@ const CreateFeed = () => {
   return (
     <div>
       {contextHolder}
-      <Typography.Title level={2}>Create Post</Typography.Title>
+      <Typography.Title level={2}>{isEditing ? 'Edit Post' : 'Create Post'}</Typography.Title>
 
       <Form
 				name="basic"
@@ -141,4 +140,4 @@ const CreateFeed = () => {
   )
 }
 
-export default CreateFeed
+export default CreateEditFeed

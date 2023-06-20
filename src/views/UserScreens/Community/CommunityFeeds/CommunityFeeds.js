@@ -9,14 +9,14 @@ const CommunityFeeds = () => {
 
   const [feedData, setFeedData] = useState([])
 
-  const callBack = (data) => {
-    setFeedData(data)
-  }
+  const [user] = useAuthState(auth);
+
+  const callBack = (data) => setFeedData(data)
   
   useEffect(() => {
     useGetCommunityFeed(callBack);
   }, [])
-  const [user, loading, error] = useAuthState(auth);
+
   return (
     <Space direction='horizontal' wrap size='middle'>
       {
