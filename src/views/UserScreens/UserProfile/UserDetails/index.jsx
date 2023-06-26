@@ -1,9 +1,9 @@
 import { Avatar, Button, Card, Col, Menu, Row, Space, Typography } from 'antd'
 import { UserOutlined } from '@ant-design/icons'
 import React from 'react'
-import { openUserEditDrawer } from '../../../../store/global-state/actions'
 import { useDispatch } from 'react-redux'
 import ContestWidget from '../../../../components/widgets/ContestWidget/ContestWidget'
+import { openUserEditDrawer } from '../../../../store/global-state/actions'
 
 const UserProfileWidget = ({ children }) => {
 
