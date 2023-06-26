@@ -69,9 +69,9 @@ const CreateEditFeed = ({ isEditing }) => {
       //   communityFeedTitle: values.feedTitle,
       //   communityFeedContent: values.feedContent,
       // })
-
+      
       messageApi.success('Sucessfully Created Feed');
-
+      navigate('/feed')
     } catch (error) {
       console.log(error);
       messageApi.error('Error Creating Feed');
