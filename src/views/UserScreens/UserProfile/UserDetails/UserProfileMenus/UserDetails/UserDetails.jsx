@@ -31,11 +31,11 @@ const UserDetails = () => {
 
         <Typography>Registered</Typography>
 
-        <Typography>{userDetails.userCountry}</Typography>
-        <Typography>{userDetails.userName}</Typography>
-        <Typography>{userDetails.userPhoneNumber}</Typography>
-        <Typography>{userDetails.userSchoolOrUni}</Typography>
-        <Typography>{userDetails.userState}</Typography>
+        <Typography>{userDetails?.userCountry}</Typography>
+        <Typography>{userDetails?.userName}</Typography>
+        <Typography>{userDetails?.userPhoneNumber}</Typography>
+        <Typography>{userDetails?.userSchoolOrUni}</Typography>
+        <Typography>{userDetails?.userState}</Typography>
       </Card>
     </div>
   );
