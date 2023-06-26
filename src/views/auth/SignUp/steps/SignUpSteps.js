@@ -2,6 +2,7 @@ import { Button, message, Steps, theme } from 'antd';
 import React, { useState } from 'react';
 import StepOne from './StepOne';
 import StepTwo from './StepTow';
+import StepThree from './StepThree';
 
 const steps = [
   {
@@ -14,7 +15,7 @@ const steps = [
   },
   {
     title: 'Last',
-    content: 'Last-content',
+    content: <StepThree />,
   },
 ];
 
