@@ -82,6 +82,7 @@ const CreateEditFeed = ({ isEditing }) => {
       // })
 
       messageApi.success("Sucessfully Created Feed");
+      navigate("/feed");
     } catch (error) {
       console.log(error);
       messageApi.error("Error Creating Feed");
