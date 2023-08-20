@@ -13,15 +13,12 @@ const Feed = ({ author, isAuthor, feedTitle, feedContent }) => {
   const handleDeleteConfirm = () => {};
 
   const navigateTo = () => {
-    
     const communitFeed_uid = encodeURI(kebabCase(feedTitle));
     navigate(`/feed-edit/${communitFeed_uid}`);
   };
 
   const { Meta } = Card;
 
-  
-  
   return (
     <Card
       className="border-2"
@@ -47,10 +44,7 @@ const Feed = ({ author, isAuthor, feedTitle, feedContent }) => {
         )
       }
     >
-      <Meta
-        title={feedTitle}
-        description={author}
-      />
+      <Meta title={feedTitle} description={author} />
       <br />
       {feedContent}
     </Card>
