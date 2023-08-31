@@ -22,7 +22,7 @@ const Feed = ({ author, isAuthor, feedTitle, feedContent }) => {
   return (
     <Card
       className="border-2"
-      // title={author}
+      title={<Meta title={feedTitle} description={author} />}
       extra={
         isAuthor ? (
           <div className="ml-4">
@@ -44,8 +44,6 @@ const Feed = ({ author, isAuthor, feedTitle, feedContent }) => {
         )
       }
     >
-      <Meta title={feedTitle} description={author} />
-      <br />
       {feedContent}
     </Card>
   );
