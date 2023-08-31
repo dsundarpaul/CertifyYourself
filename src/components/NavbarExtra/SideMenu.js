@@ -7,37 +7,45 @@ import { auth } from "../../firebase/clientApp";
 import { SIDENAV } from "../../navigations/vertical/index";
 import TabNavButton from "../TabNavButton/index";
 import { useDispatch, useSelector } from "react-redux";
-import { closeTheSideDrawer, openTheSideDrawer } from "../../store/global-state/actions";
+import {
+  closeTheSideDrawer,
+  openTheSideDrawer,
+} from "../../store/global-state/actions";
 import { logoutFirebaseUser } from "../../store/auth/actions";
 import { useNavigate } from "react-router";
 
 const SideMenu = ({ user }) => {
-
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [signOut, loading, error] = useSignOut(auth);
 
-  const open = useSelector(state => state.global.drawerState)
+  const open = useSelector((state) => state.global.drawerState);
 
   const logoutUser = (dispatch) => async () => {
     const success = await signOut(auth);
     if (success) {
-      navigate('/login')
+      navigate("/login");
       dispatch(logoutFirebaseUser());
     }
-    dispatch(closeTheSideDrawer())
+    dispatch(closeTheSideDrawer());
   };
 
-  if (error) { alert(error); }
+  if (error) {
+    alert(error);
+  }
 
-  const showDrawer = () => dispatch(openTheSideDrawer())
-  const closeDrawer = () => dispatch(closeTheSideDrawer())
+  const showDrawer = () => dispatch(openTheSideDrawer());
+  const closeDrawer = () => dispatch(closeTheSideDrawer());
 
   return (
     <div className="flex items-center">
       <div className="mr-4 grid">
-        <p className={`text-gray-600 mb-4 font-semibold d-flex justify-content-center align-items `}>{user.email}</p>
+        <p
+          className={`text-gray-600 mb-4 font-semibold d-flex justify-content-center align-items `}
+        >
+          {user.email}
+        </p>
       </div>
 
       <Button
@@ -55,19 +63,19 @@ const SideMenu = ({ user }) => {
         width="max-content"
         footer={
           <div>
-            <Button 
-              className="w-full" 
-              danger 
+            <Button
+              className="w-full"
+              type="primary"
+              danger
               icon={<LogoutOutlined />}
               loading={loading}
               onClick={logoutUser()}
-            >              
+            >
               Logout
             </Button>
           </div>
         }
       >
-    
         {SIDENAV.map((item, idx) => {
           return (
             <TabNavButton
