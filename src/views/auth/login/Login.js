@@ -1,93 +1,96 @@
-import React from "react"
-import { useNavigate } from 'react-router-dom'
-import { Card, Form, Input, Button, Switch } from 'antd'
-import { useDispatch } from 'react-redux'
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth"
-import { auth } from "../../../firebase/clientApp"
-import ComicSwitch from "../../../components/FormComponents/ComicSwitch/ComicSwitch"
-import ComicButton from "../../../components/FormComponents/ComicButton/ComicButton"
-// import { USER_AUTH } from "../../../store/auth/types"
-// import { toggleNetworkLoading } from '../../../store/common/actions'
-// import { doLogin } from '../../../store/auth/actions'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Card, Form, Input, Button, Switch } from "antd";
+import { useDispatch } from "react-redux";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "../../../firebase/clientApp";
+import ComicButton from "../../../components/FormComponents/ComicButton/ComicButton";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+  // const networkLoading = useSelector(state => state.common.networkLoading)
 
-    // const networkLoading = useSelector(state => state.common.networkLoading)
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
 
-    const [
-        signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
-      ] = useSignInWithEmailAndPassword(auth);
+  const submitFormLogin = (values) => {
+    // dispatch(doLogin(values, goToHome))
 
-    const submitFormLogin = (values) => {
-        // dispatch(doLogin(values, goToHome))
-
-        if (!values.email.includes("@")) {
-            alert("Please enter a valid email");
-        }
-
-        signInWithEmailAndPassword(values.email, values.password);
+    if (!values.email.includes("@")) {
+      alert("Please enter a valid email");
     }
 
-    if (error) {
-        alert(error);
-    }
+    signInWithEmailAndPassword(values.email, values.password);
+  };
 
-    if (user) {
-        console.log(user)
-        navigate('/feed')
-    }
+  if (error) {
+    alert(error);
+  }
 
-    return (
-        <div>
-            <div>
-                <Card className="mx-auto" style={{boxShadow: '0 4px 24px 0 rgb(34 41 47 / 36%)', maxWidth: 350}}>
-                {/* <img className='mx-auto' src={require('../../../assets/images/logo-sm.png')} alt='Susgain' /> */}
-                    <Form
-                        name="basic"
-                        initialValues={{ remember: true }}
-                        onFinish={submitFormLogin}
-                        autoComplete="off"
-                        layout="vertical"
-                    >
-                        <Form.Item
-                            label="Email"
-                            name="email"
-                            rules={[{ required: true, message: 'Please provide valid email.' }]}
-                        >
-                            <Input />
-                        </Form.Item>
+  if (user) {
+    console.log(user);
+    navigate("/feed");
+  }
 
-                        <Form.Item
-                            label="Password"
-                            name="password"
-                            rules={[{ required: true, message: 'Please provide valid password.' }]}
-                            help={ <a className='ml-1 text-xs' onClick={() => {}} >Forgot Password?</a> }
-                        >
-                            <Input.Password />
-                        </Form.Item>
+  return (
+    <div>
+      <div>
+        <Card
+          className="mx-auto"
+          style={{
+            boxShadow: "0 4px 24px 0 rgb(34 41 47 / 36%)",
+            maxWidth: 350,
+          }}
+        >
+          {/* <img className='mx-auto' src={require('../../../assets/images/logo-sm.png')} alt='Susgain' /> */}
+          <Form
+            name="basic"
+            initialValues={{ remember: true }}
+            onFinish={submitFormLogin}
+            autoComplete="off"
+            layout="vertical"
+          >
+            <Form.Item
+              label="Email"
+              name="email"
+              rules={[
+                { required: true, message: "Please provide valid email." },
+              ]}
+            >
+              <Input />
+            </Form.Item>
 
-                        <Form.Item className="text-center mt-10">
-                            <ComicButton htmlType="submit" loading={loading}>
-                                Login
-                            </ComicButton>  
-                        </Form.Item>
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                { required: true, message: "Please provide valid password." },
+              ]}
+              help={
+                <a className="ml-1 text-xs" onClick={() => {}}>
+                  Forgot Password?
+                </a>
+              }
+            >
+              <Input.Password />
+            </Form.Item>
 
-                        <Form.Item className="text-center">
-                            <a onClick={() => navigate('/signup')}>Sign Up</a>
-                        </Form.Item>
+            <Form.Item className="text-center mt-10">
+              <ComicButton htmlType="submit" loading={loading}>
+                Login
+              </ComicButton>
+            </Form.Item>
 
-                    </Form>
-                    
-                </Card>
-            </div>
-        </div>
-    )
-}
+            <Form.Item className="text-center ">
+              <a onClick={() => navigate("/signup")}>Sign Up</a>
+            </Form.Item>
+          </Form>
+        </Card>
+      </div>
+    </div>
+  );
+};
 
-export default Login
+export default Login;
