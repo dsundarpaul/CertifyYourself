@@ -1,84 +1,52 @@
 .admin-layout-header {
-    width: 100%;
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: space-between; */
-    /* background-color: #FFCCCC; */
-    z-index: 1;
-    /* padding-block: 0 !important; */
-    /* margin-block: 0 !important; */
-    /* padding: 0 !important; */
-    /* margin: 0 !important; */
-    position: fixed;
-    display: block !important;
+  position: relative;
+  z-index: 1;
+  display: block !important;
+  width: 100%;
 }
 
 .header-logo {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;    
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 100%;
 }
 .header-logo > h5 {
-    margin-inline-end: 0 !important;
-    margin-block-start: 0 !important;
-    margin-block-end: 0 !important;
+  margin-inline-end: 0 !important;
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
 }
 
 .header-logo > img {
-    display: block;
-    margin: 0 0 0 30px;
-    width: 10px;
-
+  display: block;
+  width: 30px;
+  margin: 0 0 0 30px;
 }
 
 .header-input {
-    width: 180px;
-    margin: 0 5px;
-}
-.header-btn {
-    margin: 0 4px;
-    color: #000;
-}
-.header-btn-login {
-    border: 1px solid #000;
-}
-
-.sub-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #FFEEDA;
-}
-.sub-header > button {
-    width: 100%;
-    background-color: transparent;
-    border: transparent;
-}
-.sub-header > button:hover {
-    background-color: #FFDDB5;
-    color: black !important;
+  width: 180px;
+  margin: 0 5px;
 }
 
 .main-sider {
-    /* shadow-lg hidden md:block  */
-    background-color: #B3D8FB !important;
-    overflow-y: auto;
-    /* position: fixed; */
-    z-index: 1;
-    height: auto
+  /* position: fixed; */
+  z-index: 1;
+  height: auto;
+  overflow-y: auto;
+  /* shadow-lg hidden md:block  */
+  background-color: #b3d8fb !important;
 }
 
 .main-content {
-    margin-top: 3.5rem;
-    background-color: white;
+  /* margin-top: 3.5rem; */
+  background-color: white;
 }
 .main-content > div {
-    /* p-2 overflow-auto mt-14 */
-    overflow: auto;
-    width: 100%;
+  /* p-2 overflow-auto mt-14 */
+  /* overflow: auto; */
+  width: 100%;
 }
 
 .footer {
-    text-align: center;
+  text-align: center;
 }
