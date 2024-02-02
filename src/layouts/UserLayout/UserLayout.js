@@ -116,7 +116,7 @@ const UserLayout = ({ children }) => {
               onClick={() => {
                 navigate("/feed");
               }}
-              className="p-3 text-2xl bg-transparent border-transparent h-full hover:bg-slate-200 "
+              className="text-2xl bg-transparent border-transparent h-full hover:bg-slate-200 !hover:border-transparent"
             >
               <CommentOutlined />
             </Button>
@@ -124,7 +124,7 @@ const UserLayout = ({ children }) => {
               onClick={() => {
                 navigate("/events");
               }}
-              className="p-3 text-2xl bg-transparent border-transparent h-full hover:bg-slate-200 "
+              className="text-2xl bg-transparent border-transparent h-full hover:bg-slate-200 "
             >
               <CalendarOutlined />
             </Button>
@@ -132,7 +132,7 @@ const UserLayout = ({ children }) => {
               onClick={() => {
                 navigate("/home");
               }}
-              className="p-3 px-10 text-2xl bg-transparent border-transparent h-full"
+              className="px-10 text-2xl bg-transparent border-transparent h-full"
             >
               Home
             </Button>
@@ -140,7 +140,7 @@ const UserLayout = ({ children }) => {
               onClick={() => {
                 navigate("/career");
               }}
-              className="p-3 text-2xl bg-transparent border-transparent h-full hover:bg-slate-200 "
+              className="text-2xl bg-transparent border-transparent h-full hover:bg-slate-200 "
             >
               🎖️
             </Button>
@@ -148,7 +148,7 @@ const UserLayout = ({ children }) => {
               onClick={() => {
                 navigate("/store");
               }}
-              className="p-3 text-2xl bg-transparent border-transparent h-full hover:bg-slate-200 "
+              className="text-2xl bg-transparent border-transparent h-full hover:bg-slate-200 "
             >
               <ShoppingCartOutlined />
             </Button>
