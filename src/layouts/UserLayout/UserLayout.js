@@ -1,45 +1,20 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Menu,
-  Drawer,
-  Dropdown,
-  Layout,
-  Spin,
-  Typography,
-  Input,
-} from "antd";
-import { PageHeader } from "@ant-design/pro-layout";
+import { Drawer, Layout, Spin } from "antd";
 
-import {
-  MenuOutlined,
-  CommentOutlined,
-  CalendarOutlined,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
-import { useNavigate } from "react-router";
 import MainSidePanelMenu from "../components/MainSidePanelMenu";
 import { useSelector } from "react-redux";
 
 import packageJson from "../../../package.json";
 import "./UserLayoutStyles.css";
-import d1 from "../../assets/logo/d1.png";
 import PropTypes from "prop-types";
-import SideMenu from "../../components/NavbarExtra/SideMenu";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase/clientApp";
+import Navbar from "../components/Navbar/Navbar";
 
 const { Content, Footer } = Layout;
 
 const UserLayout = ({ children }) => {
-  const navigate = useNavigate();
-
   const blockUi = useSelector((state) => state.common.blockUi);
 
-  const [user, loading, error] = useAuthState(auth);
-
   const [drawer, setDrawer] = useState(false);
-  // const [user, loading, error] = useAuthState(auth);
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -68,93 +43,7 @@ const UserLayout = ({ children }) => {
       </Drawer>
 
       <Layout className="site-layout">
-        <PageHeader
-          className="admin-layout-header"
-          title={
-            <div className="md:hidden block">
-              <Button
-                onClick={() => setDrawer(true)}
-                shape="circle"
-                type="transparent"
-                icon={<MenuOutlined />}
-              />
-            </div>
-          }
-          subTitle={
-            <div className="header-logo">
-              <img
-                src={d1}
-                alt="adminlogo"
-                className="md:hidden block w-44 m-auto"
-              />
-              <Typography.Title level={5}>CertifyYourself</Typography.Title>
-            </div>
-          }
-          extra={
-            user ? (
-              <SideMenu user={user} />
-            ) : (
-              <div>
-                <Input type="text" className="header-input" />
-                <Input type="password" className="header-input" />
-                <Button
-                  className="header-btn header-btn-login"
-                  type="primary"
-                  color="primary"
-                >
-                  Login
-                </Button>
-                <Button className="header-btn" type="link" color="primary">
-                  SignUp
-                </Button>
-              </div>
-            )
-          }
-        >
-          <div className="max-md:hidden absolute top-0 left-1/2 translate-x-[-50%] h-full">
-            <Button
-              onClick={() => {
-                navigate("/feed");
-              }}
-              className="text-2xl bg-transparent border-transparent h-full hover:bg-slate-200 !hover:border-transparent"
-            >
-              <CommentOutlined />
-            </Button>
-            <Button
-              onClick={() => {
-                navigate("/events");
-              }}
-              className="text-2xl bg-transparent border-transparent h-full hover:bg-slate-200 "
-            >
-              <CalendarOutlined />
-            </Button>
-            <Button
-              onClick={() => {
-                navigate("/home");
-              }}
-              className="px-10 text-2xl bg-transparent border-transparent h-full"
-            >
-              Home
-            </Button>
-            <Button
-              onClick={() => {
-                navigate("/career");
-              }}
-              className="text-2xl bg-transparent border-transparent h-full hover:bg-slate-200 "
-            >
-              🎖️
-            </Button>
-            <Button
-              onClick={() => {
-                navigate("/store");
-              }}
-              className="text-2xl bg-transparent border-transparent h-full hover:bg-slate-200 "
-            >
-              <ShoppingCartOutlined />
-            </Button>
-          </div>
-        </PageHeader>
-
+        <Navbar />
         <Content className="main-content p-4">
           <div>{children}</div>
         </Content>
