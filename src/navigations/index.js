@@ -24,6 +24,7 @@ import Career from "../views/UserScreens/Career/Career";
 import SignUpSteps from "../views/auth/SignUp/steps/SignUpSteps";
 import UserProfileWidget from "../views/UserScreens/UserProfile/UserDetails";
 import UserDetails from "../views/UserScreens/UserProfile/UserDetails/UserProfileMenus/UserDetails/UserDetails";
+import SelectGameMode from "../views/UserScreens/GameViews/SelectGameMode/SelectGameMode";
 // import LandingLayout from "../layouts/LandingLayout/LandingLayout";
 
 const Navigations = () => {
@@ -61,6 +62,10 @@ const Navigations = () => {
                     {/* IN GAME SCREENS */}
                     <Route path="/started" element={<InGameLayout><InGame /></InGameLayout>} />
                     <Route path="/result" element={<InGameLayout><ResultScreen /></InGameLayout>} />
+                    <Route path='/select-gamemode' element={<UserLayout><SelectGameMode /></UserLayout>} />
+                    
+                    
+                    <Route path='/lobby/:mode' element={<UserLayout><SelectGameMode /></UserLayout>} /> 
                     
                 </RouterRoutes>
             </Suspense>

@@ -47,6 +47,7 @@
     "redux-debounced": "^0.5.0",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.2",
+    "socket.io-client": "^4.7.4",
     "thunk": "0.0.1",
     "web-vitals": "^2.1.4"
   },
