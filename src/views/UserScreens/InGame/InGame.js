@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./InGameStyles.css";
-import { Button, Col, Row, Space } from "antd";
+// import { Button, Col, Row, Space } from "antd";
 import { Typography } from "antd";
-import Questions from "./Questions/Questions";
 import Timer from "./Timer/Timer";
-
 
 import { QueryStartAtConstraint } from "firebase/firestore";
 
 const { Title } = Typography;
 const InGame = () => {
   return (
-    <div>
+    <div className="w-full">
       <div className="h-auto w-full flex items-center justify-center">
         {/* <div className="h-2/3 w-2/3">
           <div className="flex items-center justify-center">
@@ -50,11 +48,8 @@ const InGame = () => {
             </Row>
           </div>
         </div> */}
-        
       </div>
-      <Questions />
       <Timer />
-
     </div>
   );
 };

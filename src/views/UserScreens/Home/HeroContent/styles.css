@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+.hero-button {
+  width: 120px;
+  height: 120px;
+  color: white;
+  font-size: 20px;
+  font-family: "Righteous", cursive;
+  letter-spacing: 0.2rem;
+  background-color: #ee404e;
+  border-radius: 5px;
+  transform: rotate(-45deg);
+}
+.hero-button span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(45deg);
+  /* color: white; */
+}
+
+.hero-button:hover {
+  color: black !important;
+  font-weight: bold;
+  font-size: 24px;
+  background-color: #f6f1f1;
+  border: 3px solid white !important;
+  border: 0.1px solid black !important;
+}
