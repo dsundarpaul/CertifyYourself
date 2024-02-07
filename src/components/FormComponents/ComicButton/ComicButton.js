@@ -1,12 +1,8 @@
 import React from "react";
-import './ComicButtonStyles.css'
+import "./ComicButtonStyles.css";
 
 const ComicButton = ({ children }) => {
-    return (
-        <button className="comic-button">
-            {children}
-        </button>
-    )
-}
+  return <button className="comic-button">{children}</button>;
+};
 
 export default ComicButton;
